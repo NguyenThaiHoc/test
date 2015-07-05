@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/processor.js"></script>
+    <!--<script type="text/javascript" src="https://code.createjs.com/createjs-2015.05.21.min.js"></script>-->
+    <script type="text/javascript">
+    var score = 0;
+        // var sentences1 = [
+        //     {"content": "This is my house.", "top": "8%", "left": "23%"}
+        // ];
+        // var sentences2= [{"content": "Wow! It is big!", "top": "25%", "left": "55%"}];
+
+        var words = [{"key": 1, "before": "", "after": "",  "top": "-9%", "left": "14%"},
+        {"key": 2, "before": "", "after": "", "top": "7%", "left": "18%"}];
+
+        var letters = [{"content": "This is my house.", "key": 1}, {"content": "Wow! It is big!", "key": 2}];
+
+        var words2 = [{"key": 1, "before": "", "after": "", "top": "-10%", "left": "15%"},
+        {"key": 2, "before": "", "after": "", "top": "56%", "left": "25%"}];
+
+        var letters2 = [{"content": "There's a garden over there.<br>Come and see it.", "key": 1}, 
+        {"content": "It's very nice!", "key": 2}];
+
+
+        $(document).ready(function () {
+            initConversation(letters, words, '#cardPilePD', '#cardSlotsPD', '#content');
+            initConversation(letters2, words2, '#cardPilePD22', '#cardSlotsPD22', '#content');
+        });
+
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar">a</span>
+                <span class="icon-bar">b</span>
+                <span class="icon-bar">c</span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                <div class="logo">@BOOK</div>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://uet.vnu.edu.vn/~hoangta">About Us</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+<div class="container fill">
+    <ol class="breadcrumb">
+        <li><a href="../index.html">English 3</a></li>
+        <li><a href="../units.html">Unit 12</a></li>
+        <li><a href="lessons.html">Practices</a></li>
+        <li>Conversation 1: Look, listen and reapeat.</li>
+    </ol>
+    <div id="content">
+        <table style ="height: 70%">
+            <tbody style  = "height: 1000px">
+            <tr>
+                <td style="width: 1000px; height:500px">
+                    <div class="cardSlotsCS" id="cardSlotsPD" class = "row" style="height: 80%;width: 80%; left: 20%;position: relative;background-image: url('../images/unit12/2.png');background-repeat: no-repeat;background-position: center classenter;background-size: 100% 100%">
+                    </div>
+                </td>
+                <td style="width: 1000px">
+                    <div class="cardSlotsCS" id="cardSlotsPD22" class = "row" style="height: 80%;width: 80%; left: 20%;position: relative;background-image: url('../images/unit12/3.png');background-repeat: no-repeat;background-position: center center;background-size: 100% 100%">
+                    </div>
+                    
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><div class="cardPileCS" id="cardPilePD"></div></td>
+                <td><div class="cardPileCS" id="cardPilePD22"></div></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>    
+    <div class="row">
+        <br>
+
+        <div class="btn-group btn-group-justified">
+            <a onclick="startAudCheck()" class="btn btn-default btn-primary" id="start">Start</a>
+            <a onclick ="check()" class="btn btn-default btn-success disabled" id = "check">Let's check</a>
+            <a onclick="reload()" class="btn btn-default btn-warning disabled" id ="tryagain">Try again</a>
+            <a onclick="showscore(4)" class="btn btn-default btn-danger disabled" id ="score" data-toggle="modal" data-target="#myModal">Score</a>
+        </div>
+
+        <nav>
+            <ul class="pager">
+                <li class="previous disabled"><a href="">Previous</a></li>
+                <li class="next"><a href="conversation2.html">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div>
+        <audio id="passage-audio">
+            <source src="../audio/unit12/Track11.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <!-- <audio id="audio2">
+            <source src="../audio/unit12/Track11_1_2.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio> -->
+    </div>
+
+</div>
+<!-- 
+<footer class="footer">
+    <div class="nav navbar">
+        <div class="text-center">
+            <p class="small pull-right">© Copyright 2015 by HEID </p>
+        </div>
+    </div>
+</footer> -->
+
+</body>
+</html>
+
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Điểm số!</h4>
+            </div>
+            <div class="modal-body">
+                <p id ="x"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui-touch-punch.js"></script>
+    <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/processor.js"></script>
+    <script type="text/javascript">
+        var correctCards = 0;
+
+        var words = [{"key": 1, "before": "The", "after": " is large."}];
+
+        var letters = [{"content": "bathroom", "key": 1}, {"content": "kitchen", "key": 0}];
+
+        var words2 = [{"key": 1, "before": "Is there a ", "after": "?"}];
+
+        var letters2 = [{"content": "chicken", "key": 1}, {"content": "kitchen", "key": 0}];
+
+
+        $(document).ready(function () {
+            initPW(letters, words, '#cardPilePS', '#cardSlotsPS', '#content');
+            initPW(letters2, words2, '#cardPilePS22', '#cardSlotsPS22', '#content');
+        });
+
+    </script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                <div class="logo">@BOOK</div>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://uet.vnu.edu.vn/~hoangta">About Us</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="../index.html">English 3</a></li>
+        <li><a href="../units.html">Unit 12</a></li>
+        <li><a href="lessons.html">Practices</a></li>
+        <li>Sentences: Listen and complete the sentences. Then repeat.</li>
+    </ol>
+
+    <!-- <img class = "imageLessiont" src="../images/unit12/1.png"> -->
+    <!--<h2>Listen and complete the sentences. Then repeat.</h2>-->
+
+    <div id="content">
+        <!-- Phonics sentence =PS-->
+        <table>
+            <tbody>
+            <tr style=>
+                <td style="width: 1000px">
+                    <div class="cardSlotsPS" id="cardSlotsPS" style="width: 100%"></div>
+                    <div class="cardPilePS" id="cardPilePS">
+                    </div>
+                </td>
+            </tr>
+
+            <tr style=" width: 1000px">
+                <td style="width: 1000px">
+                    <div class="cardSlotsPS" id="cardSlotsPS22" style="width: 100%"></div>
+                    <div class="cardPilePS" id="cardPilePS22">
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="showscore" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Điểm số!</h4>
+                </div>
+                <div class="modal-body">
+                    <p id ="x"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <br>
+
+        <div class="btn-group btn-group-justified">
+            <a onclick="startAudCheck()" class="btn btn-default btn-primary" id = "start">Start</a>
+            <a onclick="check()" class="btn btn-default btn-success disabled" id = "check">Let's check</a>
+            <a onclick="reload()" class="btn btn-default btn-warning disabled" id = "tryagain">Try again</a>
+            <a onclick="showscore(2)" class="btn btn-default btn-danger" id = "score" data-toggle="modal" data-target="#showscore">Score</a>
+        </div>
+
+        <nav>
+            <ul class="pager">
+                <li class="previous"><a href="phonics_dialogues.html">Previous</a></li>
+                <li class="next"><a href="competences.html">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div>
+    <audio id="passage-audio">
+        <source src="../audio/unit12/Track15.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+
+<footer class="footer">
+    <div class="nav navbar">
+        <div class="text-center">
+            <p class="small pull-right">© Copyright 2015 by HEID  </p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+

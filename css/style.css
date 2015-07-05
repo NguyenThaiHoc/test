@@ -1,0 +1,573 @@
+/* Add some margin to the page and set a default font and colour */
+
+body {
+    /*font-family: "Georgia", serif;*/
+    line-height: 1.8em;
+    /*color: #333;*/
+    width: 100%;
+    height: 100%;
+    font-size: 1.8em;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+
+/*html, body{*/
+/*height: 100%;*/
+/*width:100%;*/
+/*background: -webkit-linear-gradient(right, #00d2ff , #3a7bd5); /!* For Safari 5.1 to 6.0 *!/*/
+/*background: -o-linear-gradient(right, #00d2ff , #3a7bd5); /!* For Opera 11.1 to 12.0 *!/*/
+/*background: -moz-linear-gradient(right, #00d2ff , #3a7bd5); /!* For Firefox 3.6 to 15 *!/*/
+/*background: linear-gradient(to right, #00d2ff , #3a7bd5); /!* Standard syntax (must be last) *!/*/
+/*}*/
+
+/* Give headings their own font */
+
+h1, h2, h3, h4 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/* Main content area */
+
+/*.container{*/
+/*position: fixed;*/
+/*top: 0;*/
+/*width: 70%;*/
+/*height: 100%;*/
+/*margin-left: 15%;*/
+/*background-color: white;*/
+/*top: 30px;*/
+/*}*/
+
+
+.fill{
+    height: 100%;
+}
+
+.imageLessiont {
+    width: 30%;
+}
+
+/*#content {
+  margin: 80px 70px;
+  text-align: center;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}*/
+
+/* Header/footer boxes */
+/*
+.wideBox {
+  clear: both;
+  text-align: center;
+  margin: 70px;
+  padding: 10px;
+  background: #ebedf2;
+  border: 1px solid #333;
+}*/
+/*
+.wideBox h1 {
+  font-weight: bold;
+  margin: 20px;
+  color: #666;
+  font-size: 1.5em;
+}*/
+
+/* Slots for final card positions */
+
+/*#cardSlots {
+  margin: 50px auto 0 auto;
+  background: #ddf;
+}*/
+
+/* The initial pile of unsorted cards */
+
+/*#cardPile {
+  margin: 0 auto;
+  background: #ffd;
+}*/
+
+/*#cardSlots, #cardPile {
+  width: 910px;
+  height: 120px;
+  padding: 20px;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+}
+*/
+/* Individual cards and slots */
+#cardSlots div {
+    display: inline-block;
+}
+
+#cardSlots div {
+    width: 20%;
+}
+
+#cardSlots img {
+    width: 20%;
+    display: block;
+}
+
+#cardSlots div img {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+#cardSlots {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.ui-draggable {
+    background-color: #ffd;
+}
+
+#content {
+    width: 100%;
+}
+
+#cardSlots div div, #cardPile div {
+    text-align: center;
+    display: block;
+    float: left;
+    width: 150px;
+    height: 45px;
+    padding: 10px;
+    border: 2px solid #3793CF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0 0 0 10px;
+    background: #fff;
+}
+
+/*#cardSlots div:first-child, #cardPile div:first-child {
+  margin-left: 0;
+}*/
+
+#cardSlots div.hovered {
+    background: #aaa;
+}
+
+/*#cardSlots div {
+  border-style: dashed;
+}*/
+
+#cardPile div {
+    background: #00BFEC;
+    color: #fff;
+    /*font-size: 25px;*/
+    text-shadow: 0 0 3px #000;
+    margin: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#cardPile {
+    height: 130px;
+    z-index: 10000;
+    background: #DED5CC;
+    color: #fff;
+    /*font-size: 25px;*/
+    text-shadow: 0 0 3px #000;
+    border-radius: 10px;
+}
+
+#cardPile div.ui-draggable-dragging {
+    -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+
+/*conversation*/
+.textConversation {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    font-size: 30px;
+    height: 0;
+}
+
+/*Sentence patterns*/
+
+#cardSlotsSP div div, #cardPileSP div {
+    display: inline-block;
+    width: 150px;
+    height: 10px;
+    padding: 5px;
+    padding-bottom: 33px;
+    border: 2px solid #3793CF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#cardSlotsSP div {
+    width: 100%;
+    position: relative;
+    top: 10px;
+}
+
+#cardSlotsSP div.hovered {
+    background: #aaa;
+}
+
+#cardPileSP div {
+    background: #00BFEC;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 0 0 3px #000;
+    margin: 5px;
+    width: 150px;
+    cursor: pointer;
+}
+
+#cardPileSP {
+    height: auto;
+    background-color: #DED5CC;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 10px;
+    padding-right: 20px;
+}
+
+#cardSlotsSP div p {
+    display: inline;
+    line-height: 45px;
+    font-size: 25px;
+
+}
+
+/*Competences*/
+
+#cardSlotsCP div div, #cardPileCP div {
+    display: inline-block;
+    width: 300px;
+    height: 10px;
+    padding: 5px;
+    padding-bottom: 35px;
+    border: 2px solid #3793CF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+#cardSlotsCP div {
+    position: relative;
+    width: 100%;
+    top: 10px;
+}
+
+#cardSlotsCP div.hovered {
+    background: #aaa;
+}
+
+#cardPileCP div {
+    background: #00BFEC;
+    color: #fff;
+    font-size: 25px;
+    text-shadow: 0 0 3px #000;
+    margin: 5px;
+    width: 300px;
+    cursor: pointer;
+}
+
+#cardPileCP {
+    height: auto;
+    background-color: #F2F2F2;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 10px;
+    padding-right: 20px;
+}
+
+#cardSlotsCP div p {
+    display: inline;
+    line-height: 45px;
+    font-size: 25px;
+}
+
+/* Phonics -words*/
+
+.cardSlotsPW div div, .cardPilePW div {
+    display: inline-block;
+    width: 40px;
+    height: 10px;
+    padding: 3px;
+    padding-bottom: 30px;
+    background-color: #F2F2F2;
+    position: relative;
+    top: 3px;
+}
+
+.cardSlotsPW div {
+    width: 30%;
+    display: inline-block;
+}
+
+.cardSlotsPW div.hovered {
+    background-color: #aaa;
+}
+
+.cardPilePW div {
+    position: absolute;
+
+    left: 0px;
+    background: #00BFEC;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 0 0 3px #000;
+    margin-left: 80px;
+    margin-top: 0px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.cardPilePW {
+    height: auto;
+    background-color: #DED5CC;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 10px;
+    padding-right: 20px;
+}
+
+.cardSlotsPW div p {
+    display: inline;
+    line-height: 45px;
+    font-size: 25px;
+}
+
+.cardSlotsPW {
+    display: inline-block;
+}
+
+/* phonics centence*/
+
+.cardSlotsPS div div, .cardPilePS div {
+    display: inline-block;
+    width: 140px;
+    height: 10px;
+    padding: 3px;
+    padding-bottom: 33px;
+    margin-left: 10px;
+    border: 2px solid #3793CF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.cardSlotsPS div {
+    width: 30%;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+
+.cardSlotsPS div.hovered {
+    background: #aaa;
+}
+
+.cardPilePS div {
+    background: #00BFEC;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 0 0 3px #000;
+    margin-left: 80px;
+    margin-top: 0px;
+    width: 140px;
+    cursor: pointer;
+}
+
+.cardPilePS {
+    height: auto;
+    background-color: #DED5CC;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 10px;
+    padding-right: 20px;
+    padding: 5px 0 5px 0;
+}
+
+.cardSlotsPS div p {
+    display: inline;
+    line-height: 45px;
+    font-size: 25px;
+}
+
+.cardSlotsPS {
+    display: inline-block;
+    margin: 20px;
+}
+
+/* phonics dialog*/
+.cardSlotsPD div div, .cardPilePD div {
+    display: inline-block;
+    width: 230px;
+    height: 10px;
+    padding: 3px;
+    padding-bottom: 33px;
+    margin-left: 10px;
+    border: 2px solid #3793CF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.cardSlotsPD div {
+    width: 30%;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+
+.cardSlotsPD div.hovered {
+    background: #aaa;
+}
+
+.cardPilePD div {
+    background: #00BFEC;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 0 0 3px #000;
+    margin-left: 80px;
+    margin-top: 0px;
+    width: 230px;
+    cursor: pointer;
+}
+
+.cardPilePD {
+    height: auto;
+    background-color: #DED5CC;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 10px;
+    padding-right: 20px;
+    padding: 5px 0 5px 0;
+    margin-top: 20px;
+}
+
+.cardSlotsPD div p {
+    display: inline;
+    line-height: 45px;
+    font-size: 25px;
+}
+
+.cardSlotsPS {
+    display: inline-block;
+    margin: 20px;
+}
+
+span {
+    /*font-size: 30px;*/
+}
+
+.controlPage {
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    bottom: 25%;
+}
+
+.reset {
+}
+
+.correct {
+    background-color: #01DF3A;
+}
+
+.logo {
+    color: #000099;
+    background-color: #00CCFF;
+    padding: 5px;
+    margin: -5px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.bg-img {
+    float: left;
+    position: relative;
+}
+
+.text-img {
+    position: absolute;
+}
+
+.footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid #e5e1ea;
+    color: gray;
+}
+
+
+
+/* conversation*/
+.cardSlotsCS div div, .cardPileCS div {
+    display: inline-block;
+    width: 230px;
+    height: 80px;
+    padding: 3px;
+    padding-bottom: 33px;
+    margin-left: 10px;
+    /*border: 2px solid #3793CF;*/
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.cardSlotsCS div {
+    width: 30%;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+
+.cardSlotsCS div.hovered {
+    background: #aaa;
+}
+
+.cardPileCS div {
+    background: #00BFEC;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 0 0 3px #000;
+    margin-left: 20px;
+    margin-top: 0px;
+    width: 230px;
+    cursor: pointer;
+}
+
+.cardPileCS {
+    height: auto;
+    background-color: #F2F2F2;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 10px;
+    padding-right: 20px;
+    padding: 5px 0 5px 0;
+    margin-top: 20px;
+}
+
+.cardSlotsCS div p {
+    display: inline;
+    line-height: 45px;
+    font-size: 25px;
+}

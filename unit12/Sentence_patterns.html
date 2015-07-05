@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui-touch-punch.js"></script>
+    <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/processor.js"></script>
+    <script type="text/javascript">
+        var correctCards = 0;
+        var prevPosTop = 0;
+        var prevPosLeft = 0;
+        // $( init );
+
+        $(document).ready(function () {
+            init();
+        });
+
+        function init() {
+            // Reset the game
+            correctCards = 0;
+            $('#cardPileSP').html('');
+            $('#cardSlotsSP').html('');
+
+            var numbers = [{"content": "house", "key": 1}, {"content": "is", "key": 2}, {"content": "nice", "key": 3},
+                {"content": "there", "key": 4}, {"content": "my", "key": 5}];
+            numbers.sort(function () {
+                return Math.random() - .5
+            });
+
+            for (var i = 0; i < 5; i++) {
+                $('<div>' + numbers[i]["content"] + '</div>').data('number', numbers[i]["key"]).appendTo('#cardPileSP').draggable({
+                    containment: '#content',
+                    stack: '#cardPileSP div',
+                    cursor: 'move',
+                    revert: true,
+                    drag: dragThemSeft,
+                    start: startThemseft
+                }).droppable({
+                    accept: '#cardPileSP div',
+                    hoverClass: 'hovered',
+                    drop: dropThemseft
+                 });
+            }
+
+
+            // Create the card slots
+            var words = [{"key": 1, "before": "This is my ", "after": "."},
+                {"key": 2, "before": "There ", "after": " a fence ."},
+                {"key": 3, "before": "The living room is ", "after": "."},
+                {"key": 4, "before": "Is ", "after": " a garden ?"},
+                {"key": 5, "before": "This is ", "after": " bedroom ."}];
+            words.sort(function () {
+                return Math.random() - .5
+            });
+
+            for (var i = 0; i < 5; i++) {
+                var prDiv = "cardSlotsSP" + i;
+                var prDivt = "#cardSlotsSP" + i;
+                $('<div id = ' + prDiv + '>').appendTo('#cardSlotsSP');
+                var beforediv = '<p> ' + words[i]["before"] + '</p>';
+                $(beforediv).appendTo(prDivt);
+                $('<div> ' + ' ' + '</div>').data('number', words[i]["key"]).appendTo(prDivt).droppable({
+                    accept: '#cardPileSP div',
+                    hoverClass: 'hovered',
+                    drop: handleCardDrop
+                });
+                var afterdiv = '<p> ' + words[i]["after"] + '</p>';
+                $(afterdiv).appendTo(prDivt);
+            }
+        }
+
+        function dragThemSeft(event, ui){
+            var offsetXPos = parseInt( ui.offset.left );
+            var offsetYPos = parseInt( ui.offset.top );
+        }
+
+        function startThemseft(event, ui){
+            prevPosTop = ui.offset.top+8;
+            prevPosLeft = ui.offset.left+4;
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                <div class="logo">@BOOK</div>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://uet.vnu.edu.vn/~hoangta">About Us</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="../index.html">English 3</a></li>
+        <li><a href="../units.html">Unit 12</a></li>
+        <li><a href="lessons.html">Practices</a></li>
+        <li>Sentence completion: Complete the sentences with the words on the right. Then listen and repeat.</li>
+    </ol>
+
+    <!-- <img class = "imageLessiont" src="../images/unit12/1.png"> -->
+
+    <div id="content">
+        <!-- Sentence patterns =SP-->
+        <table>
+            <tbody>
+            <tr>
+                <td>
+                    <div id="cardSlotsSP"></div>
+                </td>
+                <td style="width: 20%;">
+                    <div id="cardPileSP"></div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="showscore" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Điểm số!</h4>
+                </div>
+                <div class="modal-body">
+                    <p id ="x"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <br>
+
+        <div class="btn-group btn-group-justified">
+            <a onclick="start()" class="btn btn-default btn-primary disabled" id = "start">Start</a>
+            <a onclick="check()" class="btn btn-default btn-success" id = "check">Let's check</a>
+            <a onclick="reload()" class="btn btn-default btn-warning" id = "tryagain">Try again</a>
+            <a onclick="showscore(5)" class="btn btn-default btn-danger" id = "score" data-toggle="modal" data-target="#showscore">Score</a>
+        </div>
+
+        <nav>
+            <ul class="pager">
+                <li class="previous"><a href="competences.html">Previous</a></li>
+                <li class="next"><a href="song.html">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+
+
+<footer class="footer">
+    <div class="nav navbar">
+        <div class="text-center">
+            <p class="small pull-right">© Copyright 2015 by HEID  </p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+

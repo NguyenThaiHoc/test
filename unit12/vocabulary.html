@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui-touch-punch.js"></script>
+    <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/processor.js"></script>
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+    <script type="text/javascript">
+        var correctCards = 0;
+        var prevPosTop = 0;
+        var prevPosLeft = 0;
+        var score = 0;
+        // $( init );
+
+        $(document).ready(function () {
+            init();
+            $('#showscore').hide();
+        });
+
+        function playaudio(idtag){
+            var aud = document.getElementById(idtag); 
+            aud.play();
+        }
+
+        function init() {
+            // Reset the game
+            correctCards = 0;
+            $('#cardPile').html('');
+            $('#cardSlots').html('');
+            var numbers = [{"content": "pond","sound":"pond.mp3", "key": 1}, 
+                {"content": "gate", "sound":"gate.mp3", "key": 2}, 
+                {"content": "yard", "sound":"bathroom.mp3", "key": 3},
+                {"content": "fence", "sound":"fence.mp3", "key": 4}, 
+                {"content": "garden", "sound":"garden.mp3", "key": 5},
+                {"content": "living room", "sound":"bathroom.mp3", "key": 6},
+                {"content": "bedroom", "sound":"gate.mp3", "key": 7},
+                {"content": "kitchen", "sound":"kitchen.mp3", "key": 8},
+                {"content": "dining room", "sound":"bathroom.mp3", "key": 9}, 
+                {"content": "bathroom", "sound":"bathroom.mp3", "key": 10}];
+            numbers.sort(function () {
+                return Math.random() - .5
+            });
+
+            for (var i = 0; i < 10; i++) {
+                var thenlsid = "thenls"+i;
+                $('<div class = "h4">' + numbers[i]["content"] + '<a onclick = "playaudio(\''+thenlsid+'\')" class = "h4 thenls hidden"style = "color:#F5A9F2"> <span class="glyphicon glyphicon-play-circle"></span></a>'+'</div>'+'<audio id="'+thenlsid+'"><source src="../audio/unit12/'+numbers[i]["sound"]+'" type="audio/mpeg"></audio>').data('number', numbers[i]["key"]).appendTo('#cardPile').draggable({
+                    containment: '#content',
+                    stack: '#cardPile div',
+                    cursor: 'move',
+                    revert: true,
+                    drag: dragThemSeft,
+                    start: startThemseft
+                }).droppable({
+                    accept: '#cardPile div',
+                    hoverClass: 'hovered',
+                    drop: dropThemseft
+                 });
+            }
+
+            // Create the card slots
+            var words = [{"key": 1, "img": "../images/unit12/pond.png"}, {
+                "key": 2,
+                "img": "../images/unit12/gate.png"
+            }, {"key": 3, "img": "../images/unit12/yard.png"},
+                {"key": 4, "img": "../images/unit12/fence.png"}, {
+                    "key": 5,
+                    "img": "../images/unit12/garden.png"
+                }, {"key": 6, "img": "../images/unit12/livingroom.png"},
+                {"key": 7, "img": "../images/unit12/bed.png"}, {
+                    "key": 8,
+                    "img": "../images/unit12/kitchen.png"
+                }, {"key": 9, "img": "../images/unit12/diningroom.png"},
+                {"key": 10, "img": "../images/unit12/bathroom.png"}];
+
+            words.sort(function () {
+                return Math.random() - .5
+            });
+
+            for (var i = 0; i < 10; i++) {
+                var prDiv = "cardSlots" + i;
+                var prDivt = "#cardSlots" + i;
+                $('<div id = ' + prDiv + '>').appendTo('#cardSlots');
+                var imgdiv = '<img src = ' + words[i]["img"] + '>';
+                $(imgdiv).appendTo(prDivt);
+                $('<div> ' + '' + '</div>').data('number', words[i]["key"]).appendTo(prDivt).droppable({
+                    accept: '#cardPile div',
+                    hoverClass: 'hovered',
+                    drop: handleCardDrop
+                });
+            }
+        }
+
+        function dragThemSeft(event, ui){
+            var offsetXPos = parseInt( ui.offset.left );
+              var offsetYPos = parseInt( ui.offset.top );
+
+        }
+
+        function startThemseft(event, ui){
+            prevPosTop = ui.offset.top+8;
+            prevPosLeft = ui.offset.left+4;
+        }
+
+        function dropThemseft(event, ui){
+            $(this).draggable('option', 'revert', true);
+            $(this).offset({ top: prevPosTop, left: prevPosLeft});
+            $(this).removeClass('correct');
+            $(this).removeClass('incorrect');
+            ui.draggable.draggable('option', 'revert', true)
+        }
+
+        function handleCardDrop(event, ui) {
+            var slotNumber = $(this).data('number');
+            var cardNumber = ui.draggable.data('number');
+
+            // if ( slotNumber == cardNumber ) {
+            //
+            // ui.draggable.draggable( 'disable' );
+            // $(this).droppable('disable');
+            ui.draggable.position({of: $(this), my: 'left top', at: 'left top'});
+            ui.draggable.draggable('option', 'revert', false);
+            // correctCards++;
+            // }
+
+            if (slotNumber == cardNumber) {
+                ui.draggable.addClass('correct');
+                score++;
+                // $('.correct').css('background-color', '#01DF3A');
+            } else {
+                ui.draggable.addClass('incorrect');
+                // $('.incorrect').css('background-color', 'red');
+            }
+
+            if (correctCards == 10) {
+                $('#successMessage').show();
+                $('#successMessage').animate({
+                    left: '380px',
+                    top: '200px',
+                    width: '400px',
+                    height: '100px',
+                    opacity: 1
+                });
+            }
+        }
+    </script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                <div class="logo">@BOOK</div>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://uet.vnu.edu.vn/~hoangta">About Us</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="../index.html">English 3</a></li>
+        <li><a href="../units.html">Unit 12</a></li>
+        <li><a href="lessons.html">Practices</a></li>
+        <li>Vocabulary: Match the words with the pictures. Then listen and repeat.</li>
+    </ol>
+
+    <div id="content">
+        <div class="cardSlots" id="cardSlots"></div>
+        <div class="cardPile" id="cardPile"></div>
+    </div>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Điểm số!</h4>
+                </div>
+                <div class="modal-body">
+                    <p id ="x"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <br>
+
+        <div class="btn-group btn-group-justified">
+            <a onclick="start()" class="btn btn-default btn-primary disabled" id = "start">Start</a>
+            <a onclick="check()" class="btn btn-default btn-success" id = "check">Let's check</a>
+            <a onclick="reload()" class="btn btn-default btn-warning" id = 'tryagain'>Try again</a>
+            <a onclick="showscore(10)" class="btn btn-default btn-danger" id = "score" data-toggle="modal" data-target="#myModal">Score</a>
+        </div>
+
+        <nav>
+            <ul class="pager">
+                <li class="previous"><a href="lesson1_2.html">Previous</a></li>
+                <li class="next"><a href="phonics_word.html">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="nav navbar">
+        <div class="text-center">
+            <p class="small pull-right">© Copyright 2015 by HEID  </p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+

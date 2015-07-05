@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/processor.js"></script>
+    <script type="text/javascript">
+
+        var sentences1 = [{"content": "There's a garden over there.<br>Come and see it.", "top": "8%", "left": "24%"}];
+        var sentences2 = [{"content": "It's very nice!", "top": "72%", "left": "62%"}];
+        $(document).ready(function () {
+        });
+    </script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                <div class="logo">@BOOK</div>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://uet.vnu.edu.vn/~hoangta">About Us</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+<div class="container fill">
+    <ol class="breadcrumb">
+        <li><a href="../index.html">English 3</a></li>
+        <li><a href="../units.html">Unit 12</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
+        <li>Conversation 2: Look, listen and reapeat.</li>
+    </ol>
+
+
+
+    <div id="imgConv" style="height: 70% ;width: 70%; left: 15%;position: relative; background-color: #A9F5F2;
+        background-image: url('../images/unit12/3.png');background-repeat: no-repeat;background-position: center center;background-size: 100% 100%">
+    </div>
+
+    <div style=" margin-left: 100px">
+        <audio id="audio">
+            <source src="../audio/unit12/Track11_2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="audio2">
+            <source src="../audio/unit12/Track11_2_2.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="row">
+        <br>
+
+        <div class="btn-group btn-group-justified">
+            <a onclick="startAu()" class="btn btn-default btn-primary" id ="start">Start</a>
+            <a onclick="reload()" class="btn btn-default btn-success disabled">Let's check</a>
+            <a onclick="reload()" class="btn btn-default btn-warning disabled" id = "tryagain">Try again</a>
+            <a onclick="reload()" class="btn btn-default btn-danger disabled">Score</a>
+        </div>
+
+        <nav>
+            <ul class="pager">
+                <li class="previous"><a href="lesson1_1.html">Previous</a></li>
+                <li class="next"><a href="vocabulary.html">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="nav navbar">
+        <div class="text-center">
+            <p class="small pull-right">© Copyright 2015 by HEID  </p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+
