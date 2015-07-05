@@ -10,6 +10,7 @@
     <script type="text/javascript" src="../js/jquery-ui-touch-punch.js"></script>
     <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/processor.js"></script>
+    <title>Sentence patters</title>
     <script type="text/javascript">
         var correctCards = 0;
         var prevPosTop = 0;
@@ -33,7 +34,7 @@
             });
 
             for (var i = 0; i < 5; i++) {
-                $('<div>' + numbers[i]["content"] + '</div>').data('number', numbers[i]["key"]).appendTo('#cardPileSP').draggable({
+                $('<div>' + numbers[i]["content"]  + '<a onclick = "playaudiotemp()" class = "h4 thenls hidden"style = "color:#F5A9F2"> <span class="glyphicon glyphicon-play-circle"></span></a>'+ '</div>').data('number', numbers[i]["key"]).appendTo('#cardPileSP').draggable({
                     containment: '#content',
                     stack: '#cardPileSP div',
                     cursor: 'move',
@@ -46,6 +47,7 @@
                     drop: dropThemseft
                  });
             }
+            $('<audio id = "audtemp"><source src="../audio/unit12/gate.mp3" type="audio/mpeg"></audio>').appendTo('#cardPileSP');
 
 
             // Create the card slots

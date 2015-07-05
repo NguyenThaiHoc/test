@@ -9,6 +9,7 @@
     <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui-touch-punch.js"></script>
     <script type="text/javascript" src="../js/processor.js"></script>
+    <title>Converstion</title>
     <!--<script type="text/javascript" src="https://code.createjs.com/createjs-2015.05.21.min.js"></script>-->
     <script type="text/javascript">
     var score = 0;
@@ -21,9 +22,9 @@
         {"key": 2, "before": "", "after": "", "top": "43%", "left": "18%"},
         {"key": 3, "before": "", "after": "", "top": "59%", "left": "-61%"}];
 
-        var letters = [{"content": "This is the living room.", "key": 1}, 
+        var letters = [{"content": "This is the living room.           ", "key": 1}, 
         {"content": "Wow! It's nice!<br>Is there a garden?", "key": 2},
-        {"content": "Yes there is.<br> Come and see it.", "key": 3}];
+        {"content": "Yes there is.<br> Come and see it. ", "key": 3}];
 
         var words2 = [{"key": 1, "before": "", "after": "", "top": "-10%", "left": "22%"},
         {"key": 2, "before": "", "after": "", "top": "54%", "left": "5%"}];
@@ -80,13 +81,11 @@
             <tbody style  = "height: 1000px">
             <tr>
                 <td style="width: 1000px; height:500px">
-                    <div class="cardSlotsCS" id="cardSlotsPD" class = "row" style="height: 80%;width: 80%; left: 20%;position: relative;background-image: url('../images/unit12/4.png');background-repeat: no-repeat;background-position: center classenter;background-size: 100% 100%">
+                    <div class="cardSlotsCS" id="cardSlotsPD" class="row" style="height: 80%;width: 80%; left: 20%;position: relative;background-image: url('../images/unit12/4.png');background-repeat: no-repeat;background-position: center classenter;background-size: 100% 100%">
                     </div>
                 </td>
                 <td style="width: 1000px">
-                    <div class="cardSlotsCS" id="cardSlotsPD22" class = "row" style="height: 80%;width: 80%; left: 20%;position: relative;background-image: url('../images/unit12/5.png');background-repeat: no-repeat;background-position: center center;background-size: 100% 100%">
-                    </div>
-                    
+                    <div class="cardSlotsCS" id="cardSlotsPD22" class ="row" style="height: 80%;width: 80%; left: 20%;position: relative;background-image: url('../images/unit12/5.png');background-repeat: no-repeat;background-position: center center;background-size: 100% 100%">
                     </div>
                 </td>
             </tr>
@@ -104,7 +103,7 @@
             <a onclick="startAudCheck()" class="btn btn-default btn-primary" id="start">Start</a>
             <a onclick ="check()" class="btn btn-default btn-success disabled" id = "check">Let's check</a>
             <a onclick="reload()" class="btn btn-default btn-warning disabled" id ="tryagain">Try again</a>
-            <a onclick="showscore(4)" class="btn btn-default btn-danger disabled" id ="score" data-toggle="modal" data-target="#myModal">Score</a>
+            <a onclick="showscore(5)" class="btn btn-default btn-danger disabled" id ="score" data-toggle="modal" data-target="#myModal">Score</a>
         </div>
 
         <nav>
@@ -134,12 +133,6 @@
         </div>
     </div>
 </footer> -->
-
-</body>
-</html>
-
-
-
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -156,3 +149,6 @@
         </div>
     </div>
 </div>
+
+</body>
+</html>

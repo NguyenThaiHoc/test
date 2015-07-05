@@ -76,7 +76,7 @@ function initConversation( letter, words, prPile, prSlot, container ) {
     letter.sort( function() { return Math.random() - .5 } );
 
     for ( var i=0; i<letter.length; i++ ){
-        $('<div style ="z-index: 1000;margin-bottom: 10px;height: '+30*Math.ceil(letter[i]["content"].length/15)+'px">' + letter[i]["content"] + '</div>').data( 'number', letter[i]["key"] ).appendTo( prPile ).draggable( {
+        $('<div style ="z-index: 1000;margin-bottom: 10px;height: '+28*Math.ceil(letter[i]["content"].length/17)+'px">' + letter[i]["content"] + '<a onclick = "playaudiotemp()" class = "h4 thenls hidden"style = "color:#F5A9F2"> <span class="glyphicon glyphicon-play-circle"></span></a>'+  '</div>').data( 'number', letter[i]["key"] ).appendTo( prPile ).draggable( {
             containment: container,
             stack: prPile+' div',
             cursor: 'move',
@@ -90,12 +90,13 @@ function initConversation( letter, words, prPile, prSlot, container ) {
         });
     }
 
+    $('<audio id = "audtemp"><source src="../audio/unit12/Track11_1_1.mp3" type="audio/mpeg"></audio>').appendTo(prPile);
+
     for ( var i=0; i<words.length; i++ ) {
         var prDiv = prSlot.substring(1)+i;
         var prDivt = prSlot+i;
 
-        $('<div id = '+ prDiv+' class ="textConversation" style ="top:'+words[i]["top"]+
-            ';left:'+words[i]["left"]+'">').appendTo(prSlot);
+        $('<div id = '+ prDiv+' class ="textConversation" style ="top:'+words[i]["top"]+';left:'+words[i]["left"]+'">').appendTo(prSlot);
         var beforediv = '<p>'+ words[i]["before"]+'</p>';
         $(beforediv).appendTo(prDivt);
         $('<div> ' + '' + '</div>').data( 'number', words[i]["key"] ).appendTo(prDivt).droppable( {
@@ -117,7 +118,7 @@ function initPW( letter, words, prPile, prSlot, container ) {
     letter.sort( function() { return Math.random() - .5 } );
 
     for ( var i=0; i<letter.length; i++ ){
-        $('<div>' + letter[i]["content"] + '</div>').data( 'number', letter[i]["key"] ).appendTo( prPile ).draggable( {
+        $('<div>' + letter[i]["content"] + '<a onclick = "playaudiotemp()" class = "h4 thenls hidden"style = "color:#F5A9F2"> <span class="glyphicon glyphicon-play-circle"></span></a>'+ '</div>').data( 'number', letter[i]["key"] ).appendTo( prPile ).draggable( {
             containment: container,
             stack: prPile+' div',
             cursor: 'move',
@@ -130,6 +131,7 @@ function initPW( letter, words, prPile, prSlot, container ) {
             drop: dropThemseft,
         });
     }
+    $('<audio id = "audtemp"><source src="../audio/unit12/gate.mp3" type="audio/mpeg"></audio>').appendTo(prPile);
 
     words.sort( function() { return Math.random() - .5 } );
 
@@ -190,6 +192,11 @@ function handleCardDrop(event, ui) {
     }
 }
 
+function playaudiotemp(){
+    var xxx = document.getElementById("audtemp");
+    xxx.play();
+}
+
 
 // only Phonics word
 function initPW2( letter, words, prPile, prSlot, container ) {
@@ -199,8 +206,7 @@ function initPW2( letter, words, prPile, prSlot, container ) {
     $(prSlot).html('');
 
     for ( var i=0; i<letter.length; i++ ){
-        $('<div style= "top:'+50*(((i+1)/letter.length>0.5)?1:0)+'px">' 
-            + letter[i]["content"] + '</div>').data( 'number', letter[i]["key"] ).appendTo( prPile ).draggable( {
+        $('<div style= "top:'+50*(((i+1)/letter.length>0.5)?1:0)+'px">'+ letter[i]["content"] + '</div>').data( 'number', letter[i]["key"] ).appendTo( prPile ).draggable( {
             containment: container,
             stack: prPile+' div',
             cursor: 'move',
@@ -213,6 +219,7 @@ function initPW2( letter, words, prPile, prSlot, container ) {
             drop: dropThemseft,
         });
     }
+    $('<audio id = "audtemp"><source src="../audio/unit12/gate.mp3" type="audio/mpeg"></audio>').appendTo(prPile);
 
     words.sort( function() { return Math.random() - .5 } );
 

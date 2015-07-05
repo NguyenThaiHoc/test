@@ -3,6 +3,7 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Unit 12 Competences</title>
     <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script type="text/javascript" src="../js/jquery.min.js"></script>
@@ -34,7 +35,7 @@
             });
 
             for (var i = 0; i < 5; i++) {
-                $('<div>' + answers[i]["content"] + '</div>').data('number', answers[i]["key"]).appendTo('#cardPileCP').draggable({
+                $('<div>' + answers[i]["content"] + '<a onclick = "playaudiotemp()" class = "h4 thenls hidden"style = "color:#F5A9F2"> <span class="glyphicon glyphicon-play-circle"></span></a>'+ '</div>').data('number', answers[i]["key"]).appendTo('#cardPileCP').draggable({
                     containment: '#content',
                     stack: '#cardPileCP div',
                     cursor: 'move',
@@ -48,6 +49,7 @@
                     });
             }
 
+            $('<audio id = "audtemp"><source src="../audio/unit12/gate.mp3" type="audio/mpeg"></audio>').appendTo('#cardPileCP');
             var words = [{"key": 1, "question": "Who’s that?"},
                 {"key": 2, "question": "Is this your house?"},
                 {"key": 3, "question": "How old is she?"},
