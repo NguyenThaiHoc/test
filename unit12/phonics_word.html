@@ -15,12 +15,12 @@
         var correctCards = 0;
         var score = 0;
 
-        var words = [{"key": 1, "before": "ket", "after": "en"},
-            {"key": 1, "before": "tea", "after": "er"},
-            {"key": 0, "before": "ba", "after": "room"},
-            {"key": 0, "before": "", "after": "ank"},
-            {"key": 0, "before": "", "after": "ree"},
-            {"key": 1, "before": "", "after": "icken"}];
+        var words = [{"key": 1, "before": "ket", "after": "en", "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/kitchen.mp3"},
+            {"key": 1, "before": "tea", "after": "er", "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/teacher.mp3"},
+            {"key": 0, "before": "ba", "after": "room", "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/bathroom.mp3"},
+            {"key": 0, "before": "", "after": "ank", "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/thank.mp3"},
+            {"key": 0, "before": "", "after": "ree", "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/three.mp3"},
+            {"key": 1, "before": "", "after": "icken", "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/chicken.mp3"}];
 
         var letters = [{"content": "ch", "key": 1}, {"content": "ch", "key": 1}, {"content": "ch", "key": 1},
             {"content": "ch", "key": 1}, {"content": "ch", "key": 1}, {"content": "ch", "key": 1},
@@ -82,23 +82,23 @@
 
     <div style="top: 50px; position:relative" id="content">
         <!-- Phonics word =PW-->
-        <table class="">
+        <table class="table borderless">
             <tbody>
-            <tr style=" width: 1000px">
+            <tr >
                 <td style="width: 20%;">
                     <div class="cardPilePW" id="cardPilePW">
                     </div>
                 </td>
-                <td style="width: 1000px">
+                <td >
                     <div class="cardSlotsPW" id="cardSlotsPW" style="width: 100%"></div>
                 </td>
             </tr>
 
-            <tr style=" width: 1000px">
+            <tr >
                 <td style="width: 20%;">
                     <div class="cardPilePW" id="cardPilePW22"></div>
                 </td>
-                <td style="width: 1000px">
+                <td >
                     <div class="cardSlotsPW" id="cardSlotsPW22" style="width: 100%"></div>
                 </td>
             </tr>
@@ -134,11 +134,11 @@
     <div class="row">
         <br>
 
-        <div class="btn-group btn-group-justified">
-            <a onclick="startAudCheck()" class="btn btn-default btn-primary" id = "start">Start</a>
-            <a onclick="check()" class="btn btn-default btn-success" id ="check">Let's check</a>
-            <a onclick="reload()" class="btn btn-default btn-warning" id ="tryagain">Try again</a>
-            <a onclick="showscore(6)" class="btn btn-default btn-danger" id ="score" data-toggle="modal" data-target="#showscore">Score</a>
+        <div id="toolbox" class="btn-group-lg btn-group btn-group-justified">
+            <a onclick="startAudCheck()" class="btn btn-default btn-primary" id = "start"><span class="glyphicon glyphicon-play"></span> Start</a>
+            <a onclick="check()" class="btn btn-default btn-success" id ="check"><span class="glyphicon glyphicon-check"></span>Let's check</a>
+            <a onclick="showscore(6)" class="btn btn-default btn-danger" id ="score" data-toggle="modal" data-target="#showscore"><span class="glyphicon glyphicon-star"></span>Score</a>
+            <a onclick="reload()" class="btn btn-default btn-warning" id ="tryagain"><span class="glyphicon glyphicon-refresh"></span>Try again</a>
         </div>
 
         <nav>

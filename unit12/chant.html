@@ -55,60 +55,65 @@
         </div>
     </div>
 
-    <article style="margin-top:40px">
-        <p class="autofocus-current-word hidden" >
-            <input type="checkbox" id="autofocus-current-word" checked>
-            <label for="autofocus-current-word">Auto-focus/auto-scroll</label>
-        </p>
+    <article class="container-fluid">
+        <div>
+            <p class="autofocus-current-word hidden">
+                <input type="checkbox" id="autofocus-current-word" checked>
+                <label for="autofocus-current-word">Auto-focus/auto-scroll</label>
+            </p>
 
-        <noscript>
-            <p class="error"><em><strong>Notice:</strong> You must have JavaScript enabled/available to try this HTML5
-                Audio read along.</em></p>
-        </noscript>
+            <noscript>
+                <p class="error"><em><strong>Notice:</strong> You must have JavaScript enabled/available to try this HTML5
+                    Audio read along.</em></p>
+            </noscript>
+        </div>
 
-        <div style = "width:50%; display:inline-block">
+        <div class="col-md-6">
             <img style ="width: 100%; display:inline" src="../images/unit12/chantimg.png" alt="chant">
         </div>
 
-        <div id="passage-text" class="passage" style="width:30%;float:right;display: inline-block">
-            <h3 class="section-heading">one</h3>
-            <p class = "h3" style = "color: #013ADF"> <span class="glyphicon glyphicon-music">
-                </span> Is there a garden?</p>
+        <div id="passage-text" class="passage col-md-6" >
+            <div class="panel panel-default">
+                <h3 class="section-heading">one</h3>
+                <div class="panel-heading">Is there a garden?</div>
+                <div class="panel-body">
+                    <p><sup class="verse-start"></sup>
+                        <span data-dur="0.154" data-begin="1.0935"></span></p>
 
-            <p><sup class="verse-start"></sup>
-                <span data-dur="0.154" data-begin="1.0935"></span></p>
+                    <p><sup class="verse-start"></sup>
+                        <span data-dur="3.154" data-begin="14.0935">Is there a garden behind the house?</span></p>
 
-            <p><sup class="verse-start"></sup>
-                <span data-dur="3.154" data-begin="14.0935">Is there a garden behind the house?</span></p>
+                    <p><sup class="verse-start"></sup>
+                        <span data-dur="3.28" data-begin="18.3257">Yes, there is. Yes, there is.</span></p>
 
-            <p><sup class="verse-start"></sup>
-                <span data-dur="3.28" data-begin="18.3257">Yes, there is. Yes, there is.</span></p>
+                    <p><sup class="verse-start"></sup>
+                        <span data-dur="3.29" data-begin="22.05485">Is there a yard behind the house?</span></p>
 
-            <p><sup class="verse-start"></sup>
-                <span data-dur="3.29" data-begin="22.05485">Is there a yard behind the house?</span></p>
+                    <p><sup class="verse-start"></sup>
+                        <span data-dur="3.29" data-begin="25.97296"> Yes, there is. Yes, there is.</span></p><br>
 
-            <p><sup class="verse-start"></sup>
-                <span data-dur="3.29" data-begin="25.97296"> Yes, there is. Yes, there is.</span></p><br>
+                    <p><sup class="verse-start"></sup>
+                        <span data-dur="3.131" data-begin="29.90409">Is there a gate behind the house?</span></p>
 
-            <p><sup class="verse-start"></sup>
-                <span data-dur="3.131" data-begin="29.90409">Is there a gate behind the house?</span></p>
+                    <p><sup class="verse-start"></sup>
+                        <span data-dur="3.525" data-begin="34.23916">No, there isn’t. No, there isn’t.</span></p>
 
-            <p><sup class="verse-start"></sup>
-                <span data-dur="3.525" data-begin="34.23916">No, there isn’t. No, there isn’t.</span></p>
+                    <p><sup class="verse-start"></sup>
+                        <span data-dur="3.191" data-begin="38.04817">Is there a pond behind the house?</span></p>
 
-            <p><sup class="verse-start"></sup>
-                <span data-dur="3.191" data-begin="38.04817">Is there a pond behind the house?</span></p>
-
-            <p><sup class="verse-start"></sup>
-                <span data-dur="3.225" data-begin="42.26414">No, there isn’t. No, there isn’t.</span></p>
+                    <p><sup class="verse-start"></sup>
+                        <span data-dur="3.225" data-begin="42.26414">No, there isn’t. No, there isn’t.</span></p>
+                </div>
+            </div>
+            <!--<h3> <span class="glyphicon glyphicon-music"></span> Is there a garden?</h3>-->
         </div>
     </article>
 
     <div class="row">
         <br>
 
-        <div class="btn-group btn-group-justified">
-            <a onclick="startAud()" class="btn btn-default btn-primary" id ="start">Start</a>
+        <div id="toolbox" class="btn-group-lg btn-group btn-group-justified">
+            <a onclick="startAud()" class="btn btn-default btn-primary" id ="start"><span class="glyphicon glyphicon-play"></span> Start</a>
             <a onclick="reload()" class="btn btn-default btn-success disabled">Let's check</a>
             <a onclick="reload()" class="btn btn-default btn-warning">Try again</a>
             <a onclick="reload()" class="btn btn-default btn-danger disabled">Score</a>
@@ -117,7 +122,7 @@
         <nav>
             <ul class="pager">
                 <li class="previous"><a href="#">Previous</a></li>
-                <li class="next"><a href="#">Next</a></li>
+                <!--<li class="next disabled"><a href="#">Next</a></li>-->
             </ul>
         </nav>
     </div>

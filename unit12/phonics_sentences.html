@@ -14,13 +14,15 @@
     <script type="text/javascript">
         var correctCards = 0;
 
-        var words = [{"key": 1, "before": "The", "after": " is large."}];
+        var words = [{"key": 1, "before": "The", "after": " is large.", "sound": "http://translate.google.com/translate_tts?tl=en&q=The%20is%20bathroom%20large."}];
 
-        var letters = [{"content": "bathroom", "key": 1}, {"content": "kitchen", "key": 0}];
+        var letters = [{"content": "bathroom", "key": 1, "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/bathroom.mp3"}, 
+                       {"content": "kitchen", "key": 0, "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/kitchen.mp3"}];
 
-        var words2 = [{"key": 1, "before": "Is there a ", "after": "?"}];
+        var words2 = [{"key": 0, "before": "Is there a ", "after": "?", "sound": "http://translate.google.com/translate_tts?tl=en&q=Is%20there%20a%20kitchen"}];
 
-        var letters2 = [{"content": "chicken", "key": 1}, {"content": "kitchen", "key": 0}];
+        var letters2 = [{"content": "chicken", "key": 1, "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/chicken.mp3"}, 
+                        {"content": "kitchen", "key": 0, "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/kitchen.mp3"}];
 
 
         $(document).ready(function () {
@@ -72,18 +74,18 @@
 
     <div id="content">
         <!-- Phonics sentence =PS-->
-        <table>
+        <table class="table">
             <tbody>
             <tr>
-                <td style="width: 1000px">
+                <td >
                     <div class="cardSlotsPS" id="cardSlotsPS" style="width: 100%"></div>
                     <div class="cardPilePS" id="cardPilePS">
                     </div>
                 </td>
             </tr>
 
-            <tr style=" width: 1000px">
-                <td style="width: 1000px">
+            <tr >
+                <td >
                     <div class="cardSlotsPS" id="cardSlotsPS22" style="width: 100%"></div>
                     <div class="cardPilePS" id="cardPilePS22">
                     </div>
@@ -113,11 +115,11 @@
     <div class="row">
         <br>
 
-        <div class="btn-group btn-group-justified">
-            <a onclick="startAudCheck()" class="btn btn-default btn-primary" id = "start">Start</a>
-            <a onclick="check()" class="btn btn-default btn-success disabled" id = "check">Let's check</a>
-            <a onclick="reload()" class="btn btn-default btn-warning disabled" id = "tryagain">Try again</a>
-            <a onclick="showscore(2)" class="btn btn-default btn-danger" id = "score" data-toggle="modal" data-target="#showscore">Score</a>
+        <div id="toolbox" class="btn-group-lg btn-group btn-group-justified">
+            <a onclick="startAudCheck()" class="btn btn-default btn-primary" id = "start"><span class="glyphicon glyphicon-play"></span> Start</a>
+            <a onclick="check()" class="btn btn-default btn-success disabled" id = "check"><span class="glyphicon glyphicon-check"></span>Let's check</a>
+            <a onclick="showscore(2)" class="btn btn-default btn-danger" id = "score" data-toggle="modal" data-target="#showscore"><span class="glyphicon glyphicon-star"></span>Score</a>
+            <a onclick="reload()" class="btn btn-default btn-warning disabled" id = "tryagain"><span class="glyphicon glyphicon-refresh"></span>Try again</a>
         </div>
 
         <nav>
@@ -131,7 +133,7 @@
 
 <div>
     <audio id="passage-audio">
-        <source src="../audio/unit12/Track15.mp3" type="audio/mpeg">
+        <source src="../audio/unit12/Track18.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 </div>

@@ -27,14 +27,18 @@
             $('#cardPileSP').html('');
             $('#cardSlotsSP').html('');
 
-            var numbers = [{"content": "house", "key": 1}, {"content": "is", "key": 2}, {"content": "nice", "key": 3},
-                {"content": "there", "key": 4}, {"content": "my", "key": 5}];
+            var numbers = [{"content": "house", "key": 1, "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/house.mp3"},
+                           {"content": "is", "key": 2, "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/is.mp3"}, 
+                           {"content": "nice", "key": 3, "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/nice.mp3"},
+                           {"content": "there", "key": 4, "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/there.mp3"}, 
+                           {"content": "my", "key": 5, "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/my.mp3"}];
             numbers.sort(function () {
                 return Math.random() - .5
             });
 
             for (var i = 0; i < 5; i++) {
-                $('<div>' + numbers[i]["content"]  + '<a onclick = "playaudiotemp()" class = "h4 thenls hidden"style = "color:#F5A9F2"> <span class="glyphicon glyphicon-play-circle"></span></a>'+ '</div>').data('number', numbers[i]["key"]).appendTo('#cardPileSP').draggable({
+                var thenlsid = "thenlsid" +i;
+                $('<div>' + numbers[i]["content"]  + '<a onclick = "playaudio(\'' + thenlsid + '\')" class = "h4 thenls hidden"style = "color:#F5A9F2"> <span class="glyphicon glyphicon-play-circle"></span></a>'+ '</div>').data('number', numbers[i]["key"]).appendTo('#cardPileSP').draggable({
                     containment: '#content',
                     stack: '#cardPileSP div',
                     cursor: 'move',
@@ -46,9 +50,10 @@
                     hoverClass: 'hovered',
                     drop: dropThemseft
                  });
-            }
-            $('<audio id = "audtemp"><source src="../audio/unit12/gate.mp3" type="audio/mpeg"></audio>').appendTo('#cardPileSP');
 
+                $('<audio id = "'+thenlsid+'"><source src="'+numbers[i]["sound"]+'" type="audio/mpeg"></audio>').appendTo('#cardPileSP');
+
+            }
 
             // Create the card slots
             var words = [{"key": 1, "before": "This is my ", "after": "."},
@@ -161,11 +166,11 @@
     <div class="row">
         <br>
 
-        <div class="btn-group btn-group-justified">
-            <a onclick="start()" class="btn btn-default btn-primary disabled" id = "start">Start</a>
-            <a onclick="check()" class="btn btn-default btn-success" id = "check">Let's check</a>
-            <a onclick="reload()" class="btn btn-default btn-warning" id = "tryagain">Try again</a>
-            <a onclick="showscore(5)" class="btn btn-default btn-danger" id = "score" data-toggle="modal" data-target="#showscore">Score</a>
+        <div id="toolbox" class="btn-group-lg btn-group btn-group-justified">
+            <a onclick="start()" class="btn btn-default btn-primary disabled" id = "start"><span class="glyphicon glyphicon-play"></span>Start</a>
+            <a onclick="check()" class="btn btn-default btn-success" id = "check"><span class="glyphicon glyphicon-check"></span>Let's check</a>
+            <a onclick="showscore(5)" class="btn btn-default btn-danger" id = "score" data-toggle="modal" data-target="#showscore"><span class="glyphicon glyphicon-star"></span>Score</a>
+            <a onclick="reload()" class="btn btn-default btn-warning" id = "tryagain"><span class="glyphicon glyphicon-refresh"></span>Try again</a>
         </div>
 
         <nav>

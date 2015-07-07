@@ -24,33 +24,28 @@
             $('#showscore').hide();
         });
 
-        function playaudio(idtag){
-            var aud = document.getElementById(idtag); 
-            aud.play();
-        }
-
         function init() {
             // Reset the game
             correctCards = 0;
             $('#cardPile').html('');
             $('#cardSlots').html('');
-            var numbers = [{"content": "pond","sound":"pond.mp3", "key": 1}, 
-                {"content": "gate", "sound":"gate.mp3", "key": 2}, 
-                {"content": "yard", "sound":"bathroom.mp3", "key": 3},
-                {"content": "fence", "sound":"fence.mp3", "key": 4}, 
-                {"content": "garden", "sound":"garden.mp3", "key": 5},
-                {"content": "living room", "sound":"bathroom.mp3", "key": 6},
-                {"content": "bedroom", "sound":"gate.mp3", "key": 7},
-                {"content": "kitchen", "sound":"kitchen.mp3", "key": 8},
-                {"content": "dining room", "sound":"bathroom.mp3", "key": 9}, 
-                {"content": "bathroom", "sound":"bathroom.mp3", "key": 10}];
+            var numbers = [{"content": "pond", "sound": "../audio/unit12/pond.mp3", "key": 1},
+                {"content": "gate", "sound": "../audio/unit12/gate.mp3", "key": 2},
+                {"content": "yard", "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/yard.mp3", "key": 3},
+                {"content": "fence", "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/fence.mp3", "key": 4},
+                {"content": "garden", "sound": "../audio/unit12/garden.mp3", "key": 5},
+                {"content": "living room", "sound": "http://translate.google.com/translate_tts?tl=en&q=living%20room", "key": 6},
+                {"content": "bedroom", "sound": "https://ssl.gstatic.com/dictionary/static/sounds/de/0/bedroom.mp3", "key": 7},
+                {"content": "kitchen", "sound": "../audio/unit12/kitchen.mp3", "key": 8},
+                {"content": "dining room", "sound": "http://translate.google.com/translate_tts?tl=en&q=dining%20room", "key": 9},
+                {"content": "bathroom", "sound": "../audio/unit12/bathroom.mp3", "key": 10}];
             numbers.sort(function () {
                 return Math.random() - .5
             });
 
             for (var i = 0; i < 10; i++) {
-                var thenlsid = "thenls"+i;
-                $('<div class = "h4">' + numbers[i]["content"] + '<a onclick = "playaudio(\''+thenlsid+'\')" class = "h4 thenls hidden"style = "color:#F5A9F2"> <span class="glyphicon glyphicon-play-circle"></span></a>'+'</div>'+'<audio id="'+thenlsid+'"><source src="../audio/unit12/'+numbers[i]["sound"]+'" type="audio/mpeg"></audio>').data('number', numbers[i]["key"]).appendTo('#cardPile').draggable({
+                var thenlsid = "thenls" + i;
+                $('<div class = "h4">' + numbers[i]["content"] + '<a onclick = "playaudio(\'' + thenlsid + '\')" class = "h4 thenls hidden"style = "color:#F5A9F2"> <span class="glyphicon glyphicon-play-circle"></span></a>' + '</div>' + '<audio id="' + thenlsid + '"><source src="' + numbers[i]["sound"] + '" type="audio/mpeg"></audio>').data('number', numbers[i]["key"]).appendTo('#cardPile').draggable({
                     containment: '#content',
                     stack: '#cardPile div',
                     cursor: 'move',
@@ -61,22 +56,19 @@
                     accept: '#cardPile div',
                     hoverClass: 'hovered',
                     drop: dropThemseft
-                 });
+                });
             }
 
             // Create the card slots
-            var words = [{"key": 1, "img": "../images/unit12/pond.png"}, {
-                "key": 2,
-                "img": "../images/unit12/gate.png"
-            }, {"key": 3, "img": "../images/unit12/yard.png"},
-                {"key": 4, "img": "../images/unit12/fence.png"}, {
-                    "key": 5,
-                    "img": "../images/unit12/garden.png"
-                }, {"key": 6, "img": "../images/unit12/livingroom.png"},
-                {"key": 7, "img": "../images/unit12/bed.png"}, {
-                    "key": 8,
-                    "img": "../images/unit12/kitchen.png"
-                }, {"key": 9, "img": "../images/unit12/diningroom.png"},
+            var words = [{"key": 1, "img": "../images/unit12/pond.png"},
+                {"key": 2, "img": "../images/unit12/gate.png"},
+                {"key": 3, "img": "../images/unit12/yard.png"},
+                {"key": 4, "img": "../images/unit12/fence.png"},
+                {"key": 5, "img": "../images/unit12/garden.png"},
+                {"key": 6, "img": "../images/unit12/livingroom.png"},
+                {"key": 7, "img": "../images/unit12/bed.png"},
+                {"key": 8, "img": "../images/unit12/kitchen.png"},
+                {"key": 9, "img": "../images/unit12/diningroom.png"},
                 {"key": 10, "img": "../images/unit12/bathroom.png"}];
 
             words.sort(function () {
@@ -97,20 +89,20 @@
             }
         }
 
-        function dragThemSeft(event, ui){
-            var offsetXPos = parseInt( ui.offset.left );
-              var offsetYPos = parseInt( ui.offset.top );
+        function dragThemSeft(event, ui) {
+            var offsetXPos = parseInt(ui.offset.left);
+            var offsetYPos = parseInt(ui.offset.top);
 
         }
 
-        function startThemseft(event, ui){
-            prevPosTop = ui.offset.top+8;
-            prevPosLeft = ui.offset.left+4;
+        function startThemseft(event, ui) {
+            prevPosTop = ui.offset.top + 8;
+            prevPosLeft = ui.offset.left + 4;
         }
 
-        function dropThemseft(event, ui){
+        function dropThemseft(event, ui) {
             $(this).draggable('option', 'revert', true);
-            $(this).offset({ top: prevPosTop, left: prevPosLeft});
+            $(this).offset({top: prevPosTop, left: prevPosLeft});
             $(this).removeClass('correct');
             $(this).removeClass('incorrect');
             ui.draggable.draggable('option', 'revert', true)
@@ -189,7 +181,7 @@
     </ol>
 
     <div id="content">
-        <div class="cardSlots" id="cardSlots"></div>
+        <div class="cardSlots" id="cardSlots" class = "row"></div>
         <div class="cardPile" id="cardPile"></div>
     </div>
 
@@ -201,7 +193,7 @@
                     <h4 class="modal-title">Điểm số!</h4>
                 </div>
                 <div class="modal-body">
-                    <p id ="x"></p>
+                    <p id="x"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -213,11 +205,11 @@
     <div class="row">
         <br>
 
-        <div class="btn-group btn-group-justified">
-            <a onclick="start()" class="btn btn-default btn-primary disabled" id = "start">Start</a>
-            <a onclick="check()" class="btn btn-default btn-success" id = "check">Let's check</a>
-            <a onclick="reload()" class="btn btn-default btn-warning" id = 'tryagain'>Try again</a>
-            <a onclick="showscore(10)" class="btn btn-default btn-danger" id = "score" data-toggle="modal" data-target="#myModal">Score</a>
+        <div id="toolbox" class="btn-group-lg btn-group btn-group-justified">
+            <a onclick="start()" class="btn btn-default btn-primary disabled" id="start"><span class="glyphicon glyphicon-play"></span>Start</a>
+            <a onclick="check()" class="btn btn-default btn-success" id="check"><span class="glyphicon glyphicon-check"></span>Let's check</a>
+            <a onclick="showscore(10)" class="btn btn-default btn-danger" id="score" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-star"></span>Score</a>
+            <a onclick="reload()" class="btn btn-default btn-warning" id='tryagain'><span class="glyphicon glyphicon-refresh"></span>Try again</a>
         </div>
 
         <nav>
@@ -232,7 +224,7 @@
 <footer class="footer">
     <div class="nav navbar">
         <div class="text-center">
-            <p class="small pull-right">© Copyright 2015 by HEID  </p>
+            <p class="small pull-right">© Copyright 2015 by HEID </p>
         </div>
     </div>
 </footer>

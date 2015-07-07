@@ -18,16 +18,16 @@
         // ];
         // var sentences2= [{"content": "Wow! It is big!", "top": "25%", "left": "55%"}];
 
-        var words = [{"key": 1, "before": "", "after": "",  "top": "-9%", "left": "14%"},
-        {"key": 2, "before": "", "after": "", "top": "7%", "left": "18%"}];
+        var words = [{"key": 1, "before": "", "after": "",  "top": "-6%", "left": "14%"},
+        {"key": 2, "before": "", "after": "", "top": "10%", "left": "18%"}];
 
-        var letters = [{"content": "This is my house.", "key": 1}, {"content": "Wow! It is big!", "key": 2}];
+        var letters = [{"content": "This is my house.", "key": 1, "sound":"Track11_1_1.mp3"}, {"content": "Wow! It is big!", "key": 2, "sound": "Track11_1_2.mp3"}];
 
-        var words2 = [{"key": 1, "before": "", "after": "", "top": "-10%", "left": "15%"},
-        {"key": 2, "before": "", "after": "", "top": "56%", "left": "25%"}];
+        var words2 = [{"key": 1, "before": "", "after": "", "top": "-8%", "left": "15%"},
+        {"key": 2, "before": "", "after": "", "top": "54%", "left": "25%"}];
 
-        var letters2 = [{"content": "There's a garden over there.<br>Come and see it.    ", "key": 1}, 
-        {"content": "It's very nice!", "key": 2}];
+        var letters2 = [{"content": "There's a garden over there.<br>Come and see it.    ", "key": 1,"sound": "Track11_2_1.mp3"},
+        {"content": "It's very nice!", "key": 2, "sound":"Track11_2_2.mp3"}];
 
 
         $(document).ready(function () {
@@ -73,6 +73,7 @@
         <li><a href="lessons.html">Practices</a></li>
         <li>Conversation 1: Look, listen and reapeat.</li>
     </ol>
+
     <div id="content">
         <table style ="height: 70%">
             <tbody style  = "height: 1000px">
@@ -82,7 +83,7 @@
                     </div>
                 </td>
                 <td style="width: 1000px">
-                    <div class="cardSlotsCS" id="cardSlotsPD22" class="row" style="height: 80%;width: 80%; left: 20%;position: relative;background-image: url('../images/unit12/3.png');background-repeat: no-repeat;background-position: center center;background-size: 100% 100%">
+                    <div class="cardSlotsCS" id="cardSlotsPD22" class ="row" style="height: 80%;width: 80%; left: 20%;position: relative;background-image: url('../images/unit12/3.png');background-repeat: no-repeat;background-position: center center;background-size: 100% 100%">
                     </div>
                 </td>
             </tr>
@@ -92,20 +93,21 @@
             </tr>
             </tbody>
         </table>
-    </div>    
+    </div>
+
     <div class="row">
         <br>
 
-        <div class="btn-group btn-group-justified">
-            <a onclick="startAudCheck()" class="btn btn-default btn-primary" id="start">Start</a>
-            <a onclick ="check()" class="btn btn-default btn-success disabled" id = "check">Let's check</a>
-            <a onclick="reload()" class="btn btn-default btn-warning disabled" id ="tryagain">Try again</a>
-            <a onclick="showscore(4)" class="btn btn-default btn-danger disabled" id ="score" data-toggle="modal" data-target="#myModal">Score</a>
+        <div id="toolbox" class="btn-group-lg btn-group btn-group-justified">
+            <a onclick="startAudCheck()" class="btn btn-default btn-primary btn-lg" id="start"><span class="glyphicon glyphicon-play"></span> Start</a>
+            <a onclick ="check()" class="btn btn-default btn-success disabled btn-lg" id = "check"><span class="glyphicon glyphicon-check"></span> Let's check</a>
+            <a onclick="showscore(4)" class="btn btn-default btn-danger disabled btn-lg" id ="score" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-star"></span> Score</a>
+            <a onclick="reload()" class="btn btn-default btn-warning disabled btn-lg" id ="tryagain"><span class="glyphicon glyphicon-refresh"></span> Try again</a>
         </div>
 
         <nav>
             <ul class="pager">
-                <li class="previous disabled"><a href="">Previous</a></li>
+                <!--<li class="previous disabled"><a href="">Previous</a></li>-->
                 <li class="next"><a href="conversation2.html">Next</a></li>
             </ul>
         </nav>

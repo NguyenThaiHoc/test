@@ -32,12 +32,13 @@ q {
 .section-heading {
     display: none;
 }
-.passage p {
-    line-height: 1.4em;
-}
-.verse-start {
-    line-height: 0;
-}
+/*.passage p {*/
+    /*line-height: 1.4em;*/
+/*}*/
+/*.verse-start {*/
+    /*line-height: 0;*/
+/*}*/
+
 .initialized span[data-begin]:focus,
 .initialized span[data-begin]:hover {
     background-color: #FFFFCA;

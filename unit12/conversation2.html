@@ -9,7 +9,7 @@
     <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui-touch-punch.js"></script>
     <script type="text/javascript" src="../js/processor.js"></script>
-    <title>Converstion</title>
+    <title>Conversation</title>
     <!--<script type="text/javascript" src="https://code.createjs.com/createjs-2015.05.21.min.js"></script>-->
     <script type="text/javascript">
     var score = 0;
@@ -18,19 +18,19 @@
         // ];
         // var sentences2= [{"content": "Wow! It is big!", "top": "25%", "left": "55%"}];
 
-        var words = [{"key": 1, "before": "", "after": "",  "top": "-10%", "left": "8%"},
+        var words = [{"key": 1, "before": "", "after": "",  "top": "-17%", "left": "8%"},
         {"key": 2, "before": "", "after": "", "top": "43%", "left": "18%"},
         {"key": 3, "before": "", "after": "", "top": "59%", "left": "-61%"}];
 
-        var letters = [{"content": "This is the living room.           ", "key": 1}, 
-        {"content": "Wow! It's nice!<br>Is there a garden?", "key": 2},
-        {"content": "Yes there is.<br> Come and see it. ", "key": 3}];
+        var letters = [{"content": "This is the living room.           ", "key": 1, "sound":"14.1.mp3"}, 
+        {"content": "Wow! It's nice! Is there a garden?           ", "key": 2, "sound":"14_2.mp3"},
+        {"content": "Yes there is.<br> Come and see it. ", "key": 3, "sound":"14_3.mp3"}];
 
-        var words2 = [{"key": 1, "before": "", "after": "", "top": "-10%", "left": "22%"},
-        {"key": 2, "before": "", "after": "", "top": "54%", "left": "5%"}];
+        var words2 = [{"key": 1, "before": "", "after": "", "top": "-5%", "left": "22%"},
+        {"key": 2, "before": "", "after": "", "top": "52%", "left": "5%"}];
 
-        var letters2 = [{"content": "Is there a fence?", "key": 1}, 
-        {"content": "No, there isn't.", "key": 2}];
+        var letters2 = [{"content": "Is there a fence?", "key": 1, "sound":"14_4.mp3"}, 
+        {"content": "No, there isn't.", "key": 2, "sound":"14_5.mp3"}];
 
 
         $(document).ready(function () {
@@ -99,11 +99,11 @@
     <div class="row">
         <br>
 
-        <div class="btn-group btn-group-justified">
-            <a onclick="startAudCheck()" class="btn btn-default btn-primary" id="start">Start</a>
-            <a onclick ="check()" class="btn btn-default btn-success disabled" id = "check">Let's check</a>
-            <a onclick="reload()" class="btn btn-default btn-warning disabled" id ="tryagain">Try again</a>
-            <a onclick="showscore(5)" class="btn btn-default btn-danger disabled" id ="score" data-toggle="modal" data-target="#myModal">Score</a>
+        <div id="toolbox" class="btn-group-lg btn-group btn-group-justified">
+            <a onclick="startAudCheck()" class="btn btn-default btn-primary" id="start"><span class="glyphicon glyphicon-play"></span> Start</a>
+            <a onclick ="check()" class="btn btn-default btn-success disabled" id = "check"><span class="glyphicon glyphicon-check"></span>Let's check</a>
+            <a onclick="showscore(5)" class="btn btn-default btn-danger disabled" id ="score" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-star"></span>Score</a>
+            <a onclick="reload()" class="btn btn-default btn-warning disabled" id ="tryagain"><span class="glyphicon glyphicon-refresh"></span>Try again</a>
         </div>
 
         <nav>
