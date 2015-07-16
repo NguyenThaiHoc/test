@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Unit12-Song</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.custom.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+    <script type="text/javascript" src="../js/3rdparty/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/soundmanager2-jsmin.js"></script>
+    <script type="text/javascript" src="../js/ricekaraoke.js"></script>
+    <script type="text/javascript" src="../js/simplekaraokedisplay.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tryagain').hide();
+        });
+    </script>
+
+</head>
+<body>
+
+<!--<nav class="navbar navbar-default">-->
+    <!--<div class="navbar-header">-->
+        <!--<a class="navbar-brand" href="../index.html">-->
+            <!--<div class="logo">@BOOK</div>-->
+        <!--</a>-->
+    <!--</div>-->
+<!--</nav>-->
+
+<div id="page" class="container">
+    <ol id="page-header" class="breadcrumb">
+        <li><a href="../index.html">English 3</a></li>
+        <li><a href="../units.html">Unit 12</a></li>
+        <li><a href="lessons.html">Practices</a></li>
+        <li>Songs</li>
+    </ol>
+
+    <article id="page-content" class="container">
+        <h2 class="title">7. Let's sing.
+            <a onclick = "playAudio('passage-audio')" class = "play-button glyphicon glyphicon-play-circle"></a>
+        </h2>
+
+        <div>
+            <p class="passage-audio-unavailable hidden">
+                <em class="error"><strong>Error:</strong> You will not be able to do the read-along audio because your
+                    browser is not able to play MP3, Ogg, or WAV audio formats.</em>
+            </p>
+
+            <p class="playback-rate hidden"
+               title="Note that increasing the reading rate will decrease accuracy of word highlights">
+                <label for="playback-rate">Reading rate:</label>
+                <input id="playback-rate" type="range" min="0.5" max="2.0" value="1.0" step="0.1" disabled
+                       onchange='this.nextElementSibling.textContent = String(Math.round(this.valueAsNumber * 10) / 10) + "\u00D7";'>
+                <!-- <output>1&times;</output> -->
+            </p>
+
+            <p class="playback-rate-unavailable hidden">
+                <em>(It seems your browser does not support <code>HTMLMediaElement.playbackRate</code>, so you will not
+                    be
+                    able to change the speech rate.)</em>
+            </p>
+
+            <p class="autofocus-current-word hidden">
+                <input type="checkbox" id="autofocus-current-word" checked>
+                <label for="autofocus-current-word">Auto-focus/auto-scroll</label>
+            </p>
+
+            <noscript>
+                <p class="error"><em><strong>Notice:</strong> You must have JavaScript enabled/available to try this
+                    HTML5
+                    Audio read along.</em></p>
+            </noscript>
+        </div>
+
+        <div class="col-md-4">
+            <img style="width: 100%;" src="../images/unit12/songimg.png" alt="The way I clean my house.">
+        </div>
+
+        <div id="passage-text" class="passage col-md-8">
+
+            <!--             <h3 class="section-heading">one</h3>
+
+                        <h3>The way I clean my house</h3>
+                        <br>
+
+                        <p>
+                            <span data-dur="0.154" data-begin="12.70904"></span>
+                            <span data-dur="0.154" data-begin="12.70904">This</span>
+                            <span data-dur="0.28" data-begin="12.9048">is</span>
+                            <span data-dur="0.29" data-begin="13.21688">the</span>
+                            <span data-dur="0.131" data-begin="13.41164">way</span>
+                            <span data-dur="0.525" data-begin="13.58637">I</span>
+                            <span data-dur="0.191" data-begin="13.81959">clean</span>
+                            <span data-dur="0.225" data-begin="14.01133">my</span>
+                            <span data-dur="0.245" data-begin="14.22432">house</span>,</p>
+
+                        <h3 class="section-heading">nexnex</h3>
+
+                        <p>
+                            <span data-dur="0.144" data-begin="14.72615">Clean</span>
+                            <span data-dur="0.089" data-begin="14.9219">my</span>
+                            <span data-dur="0.102" data-begin="15.13487">house,</span>
+                            <span data-dur="0.329" data-begin="15.81647">clean</span>
+                            <span data-dur="0.406" data-begin="16.12833">my</span>
+                            <span data-dur="0.146" data-begin="16.22619">house.</span></p>
+
+                        <p>
+                            <span data-dur="0.154" data-begin="17.02188">This</span>
+                            <span data-dur="0.28" data-begin="17.23487">is</span>
+                            <span data-dur="0.29" data-begin="17.44983">the</span>
+                            <span data-dur="0.131" data-begin="17.84257">way</span>
+                            <span data-dur="0.525" data-begin="18.05656">I</span>
+                            <span data-dur="0.191" data-begin="18.35141">clean</span>
+                            <span data-dur="0.225" data-begin="18.44828">my</span>
+                            <span data-dur="0.245" data-begin="18.74013">house</span>,</p>
+
+                        <p>
+                            <span data-dur="0.144" data-begin="19.14788">So</span>
+                            <span data-dur="0.089" data-begin="19.36184">early</span>
+                            <span data-dur="0.102" data-begin="19.55882">in</span>
+                            <span data-dur="0.329" data-begin="19.75458">the</span>
+                            <span data-dur="0.406" data-begin="20.06566">morning.</span></p>
+                        <br>
+
+                        <p>
+                            <span data-dur="0.154" data-begin="24.08865">This</span>
+                            <span data-dur="0.28" data-begin="24.2664">is</span>
+                            <span data-dur="0.29" data-begin="24.48139">the</span>
+                            <span data-dur="0.131" data-begin="24.69637">way</span>
+                            <span data-dur="0.525" data-begin="25.1033,">I</span>
+                            <span data-dur="0.191" data-begin="25.2002">clean</span>
+                            <span data-dur="0.225" data-begin="25.39495">my</span>
+                            <span data-dur="0.245" data-begin="25.59193">room</span>,</p>
+
+                        <p>
+                            <span data-dur="0.144" data-begin="26.07753">Clean</span>
+                            <span data-dur="0.089" data-begin="26.31072">my</span>
+                            <span data-dur="0.102" data-begin="26.50648">room,</span>
+                            <span data-dur="0.329" data-begin="27.30917">clean</span>
+                            <span data-dur="0.406" data-begin="27.49594">my</span>
+                            <span data-dur="0.146" data-begin="27.71091">room.</span></p>
+
+                        <p>
+                            <span data-dur="0.154" data-begin="28.72758">This</span>
+                            <span data-dur="0.28" data-begin="28.82545">is</span>
+                            <span data-dur="0.29" data-begin="29.02021">the</span>
+                            <span data-dur="0.131" data-begin="29.42816">way</span>
+                            <span data-dur="0.525" data-begin="29.8401">I</span>
+                            <span data-dur="0.191" data-begin="30.13375">clean</span>
+                            <span data-dur="0.225" data-begin="30.21264">my</span>
+                            <span data-dur="0.245" data-begin="30.4276">room</span>,</p>
+
+                        <p>
+                            <span data-dur="0.144" data-begin="30.64159">So</span>
+                            <span data-dur="0.089" data-begin="31.03431">early</span>
+                            <span data-dur="0.102" data-begin="31.1312">in</span>
+                            <span data-dur="0.329" data-begin="31.32718">the</span>
+                            <span data-dur="0.406" data-begin="31.54314">morning.</span></p>
+                    </div>
+                </article>
+
+                <nav id="toolbox" class="navbar navbar-default toolbox" >
+                    <ul class="nav navbar-nav">
+                        <li class="pull-left"><a href="6-competences.html"><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+
+                        <li><a onclick="startAud()" class="btn btn-default btn-primary" id="start"><span class="glyphicon glyphicon-play"></span> Start</a></li>
+                        <li><a onclick ="toolboxCheck()" class="btn btn-success disabled " id = "check"><span class="glyphicon glyphicon-check"></span> Let's check</a></li>
+                        <li><a onclick="toolboxScore(5)" class="btn btn-danger disabled " id ="score" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-star"></span> Score</a></li>
+                        <li><a onclick="reload()" class="btn btn-warning disabled " id ="tryagain" class="hidden"><span class="glyphicon glyphicon-repeat"></span> Try again</a></li>
+
+                        <li class="pull-right"><a href="8-chants.html"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                    </ul>
+                </nav>
+
+            </div>
+             -->
+
+            <div id="player" style="display: none">
+                <div id="karaoke-wrapper">
+                    <div id="karaoke-display"></div>
+                </div>
+
+                <div id="controls">
+                    <div id="buttons">
+                        <button id="play-button"><img src="../images/buttons/play.png" alt="Play"/></button>
+                    </div>
+                    <div id="status">
+                        ---
+                    </div>
+                    <div id="scrubber-container">
+                        <div id="scrubber"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <nav id="page-footer" class="navbar navbar-default toolbox">
+        <ul class="nav navbar-nav">
+            <li class="pull-left"><a href="6-competences.html"><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+
+            <!--<li><a onclick="startAud()" id="start"><span class="glyphicon glyphicon-play"></span> Start</a></li>-->
+            <!--<li><a onclick="reload()" id="check"><span class="glyphicon glyphicon-check"></span> Let's check</a></li>-->
+            <!--<li><a onclick="reload()" id="score" data-toggle="modal" data-target="#showscore"><span class="glyphicon glyphicon-star"></span> Score</a></li>-->
+            <li><a onclick="reload()" id="tryagain" class="hidden"><span class="glyphicon glyphicon-repeat"></span> Try again</a></li>
+
+            <li class="pull-right"><a href="8-chants.html"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+        </ul>
+    </nav>
+    <button type="button" class="btn btn-info btn-md btn-help"data-toggle="modal" data-target="#help">?</button><br>
+</div>
+
+<footer class="footer">
+    <div class="nav navbar">
+        <div class="text-center">
+            <p class="small pull-right">© Copyright 2015 by HEID </p>
+        </div>
+    </div>
+</footer>
+<!-- <script src="../js/main.js"></script> -->
+
+<script type="text/javascript">
+    //<![CDATA[
+    var numDisplayLines = 10; // Number of lines to do the karaoke with
+    var timings = [[12.709, 14.469, [[0, 'This ',], [0.195, 'is '], [0.507, 'the '], [0.702, 'way '], [0.877, 'I '], [1.11, 'clean '], [1.302, 'my '], [1.515, 'house, ']]], [14.469, 16.272, [[0.257, 'Clean ',], [0.452, 'my '], [0.665, 'house, '], [1.347, 'clean '], [1.659, 'my '], [1.757, 'house ']]], [16.272, 18.985, [[0.749, 'This ',], [0.962, 'is '], [1.177, 'the '], [1.570, 'way '], [1.784, 'I '], [2.079, 'clean '], [2.158, 'my '], [2.45, 'house, ']]], [18.985, 20.471, [[0, 'So ',], [0.214, 'early '], [0.411, 'in '], [0.615, 'the '], [0.926, 'morning. ']]], [24.088, 25.591, [[0, 'This ',], [0.154, 'is '], [0.182, 'the '], [0.211, 'way '], [0.342, 'I '], [0.876, 'clean '], [1.067, 'my '], [1.292, 'room, ']]], [26.077, 27.710, [[0, 'Clean ',], [0.233, 'my '], [0.429, 'room, '], [1.232, 'clean '], [1.418, 'my '], [1.633, 'room ']]], [28.727, 30.672, [[0, 'This ',], [0.098, 'is '], [0.293, 'the '], [0.701, 'way '], [1.113, 'I '], [1.406, 'clean '], [1.485, 'my '], [1.7, 'room, ']]], [30.641, 31.949, [[0, 'So ',], [0.393, 'early '], [0.49, 'in '], [0.686, 'the '], [0.902, 'morning. ']]]];
+    var musicFilename = 'Track13';
+    var musicPath = '../audio/unit12/' + musicFilename + '.mp3';
+
+    var isScrubbing = false;
+    var wasPaused = false;
+    var show = null;
+    var player = null;
+    var scrubber = null;
+    var lastPosition = 0;
+
+    function getTimeString(t) {
+        var min = Math.floor(t / 60);
+        var secs = Math.floor(t % 60);
+        return min + ':' + (secs < 10 ? '0' : '') + secs;
+    }
+
+    function changePosition(percent) {
+        if (player != null) {
+            var duration = player.loaded ? player.duration : player.durationEstimate;
+            var position = duration * percent / 100;
+            player.setPosition(position);
+        }
+    }
+
+    function updateControls() {
+        if (isScrubbing) {
+            $('#play-button').attr('disabled', 'disabled');
+        } else {
+            $('#play-button').removeAttr('disabled');
+        }
+
+        if (player.paused) {
+            $('#play-button').html('<img src="../images/buttons/play.png" alt="Play" />');
+        } else {
+            $('#play-button').html('<img src="../images/buttons/pause.png" alt="Pause" />');
+        }
+
+        updateStatus();
+    }
+
+    function updateStatus() {
+        var duration = player.loaded ? player.duration : player.durationEstimate;
+        $('#status').text(getTimeString(player.position / 1000) + ' / ' +
+                getTimeString(duration / 1000));
+    }
+
+    function setup() {
+        $('#loading-dialog').hide();
+        $('#player').show();
+        $('#play-button').click(function (e) {
+            player.togglePause();
+        });
+
+        updateControls();
+    }
+
+    function init() {
+        // Create the karaoke engine and get a show instance
+        var karaoke = new RiceKaraoke(RiceKaraoke.simpleTimingToTiming(timings));
+        var renderer = new SimpleKaraokeDisplayEngine('karaoke-display', numDisplayLines);
+        show = karaoke.createShow(renderer, numDisplayLines);
+
+        $('#loading-message').text("Initial buffering, please wait...");
+
+        // Create the scrubber
+        scrubber = $("#scrubber").slider({
+            max: 100,
+            min: 0,
+            step: .001,
+            start: function (event, ui) {
+                isScrubbing = true;
+                wasPaused = player.paused;
+                player.pause();
+            },
+            stop: function (event, ui) {
+                changePosition(ui.value);
+                isScrubbing = false;
+                if (!wasPaused) {
+                    player.resume();
+                }
+            },
+            slide: function (event, ui) {
+                changePosition(ui.value);
+            }
+        });
+
+        // Create sound player
+        player = soundManager.createSound({
+            id: 'karaokeSound',
+            url: musicPath,
+            volume: 100,
+            stream: true,
+            autoPlay: true,
+            onload: function (success) {
+                if (this.readyState == 2) {
+                    alert('Failed to play the music file!');
+                }
+            },
+            onstop: function () {
+                updateControls();
+            },
+            onpause: function () {
+                updateControls();
+            },
+            onresume: function () {
+                updateControls();
+            },
+            onfinish: function () {
+                this.play();
+                this.pause();
+                this.setPosition(0);
+                updateControls();
+            },
+            whileplaying: function (e, p) {
+                if (this.position < lastPosition) {
+                    show.reset();
+                }
+
+                if (!isScrubbing) {
+                    var duration = this.loaded ? this.duration : this.durationEstimate;
+                    scrubber.slider('value', this.position / duration * 100);
+                }
+
+                show.render(this.position / 1000, isScrubbing);
+                updateStatus();
+                lastPosition = this.position;
+            }
+        });
+
+        setup();
+    }
+
+    $('#loading-message').text("Loading, please wait...");
+
+    // Start up the music
+    soundManager.url = '../js/';
+    soundManager.onerror = function () {
+        alert('SoundManager failed to load!');
+    }
+    soundManager.onload = function () {
+        init();
+        console.log(player);
+    }
+</script>
+
+<div class="modal fade" id="help" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="#English">English</a></li>
+                    <li><a href="#Vietnam">Tiếng Việt</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="English" class="tab-pane fade in active">
+                        <h3>Content</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div id="Vietnam" class="tab-pane fade">
+                        <h3>Nội dung</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Unit 12 Competences</title>
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui-touch-punch.js"></script>
+    <script type="text/javascript" src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/processor.js"></script>
+    <script type="text/javascript">
+
+        //data
+
+        var answers = [{"content": "That’s my sister.", "key": 1},
+            {"content": "Yes, it is.", "key": 2},
+            {"content": "She’s ten.", "key": 3},
+            {"content": "Yes, there is.", "key": 4},
+            {"content": "That’s my house.", "key": 5}];
+
+        var questions = [{"key": 1, "question": "Who’s that?"},
+            {"key": 2, "question": "Is this your house?"},
+            {"key": 3, "question": "How old is she?"},
+            {"key": 4, "question": "Is there a garden?"},
+            {"key": 5, "question": "What’s that?"}];
+
+        $(document).ready(function () {
+            init6Competences(questions, answers);
+        });
+    </script>
+
+</head>
+<body>
+
+<!--<div class="nabar-header">-->
+<!--<nav class="navbar navbar-default">-->
+<!--<div class="navbar-header">-->
+<!--<a class="navbar-brand" href="../index.html">-->
+<!--<div class="logo">@BOOK</div>-->
+<!--</a>-->
+<!--</div>-->
+<!--</nav>-->
+<!--</div>-->
+
+<div id="page" class="container">
+    <ol id="page-header" class="breadcrumb">
+        <li><a href="../index.html">English 3</a></li>
+        <li><a href="../units.html">Unit 12</a></li>
+        <li><a href="lessons.html">Practices</a></li>
+        <li>Competences</li>
+    </ol>
+
+
+    <div id="page-content">
+        <h2 class="title">6. Match the questions and the answers. Then listen and repeat.</h2>
+        <br>
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-6">
+                <div class="" id="cardSlotsCP"></div>
+            </div>
+            <div class="col-sm-12 col-xs-12 col-md-6">
+                <div class="" id="cardPileCP"></div>
+            </div>
+        </div>
+    </div>
+
+    <nav id="page-footer" class="navbar navbar-default toolbox">
+        <ul class="nav navbar-nav">
+            <li class="pull-left"><a href="5-sentence-patterns.html"><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+
+            <!--<li><a onclick="toolboxStart()"  id="start"><span class="glyphicon glyphicon-play"></span> Start</a></li>-->
+            <li><a onclick="toolboxCheck()" id="check"><span class="glyphicon glyphicon-check"></span> Let's check</a></li>
+            <li> <p id="score"></p> </li>
+
+            <li><a onclick="reload()" id="tryagain" class="hidden"><span class="glyphicon glyphicon-repeat"></span> Try again</a></li>
+
+            <li class="pull-right"><a href="7-songs.html"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+        </ul>
+    </nav>
+
+</div>
+
+<div class="modal fade" id="showscore" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Điểm số!</h4>
+            </div>
+            <div class="modal-body">
+                <p id="x"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-info btn-md btn-help" data-toggle="modal" data-target="#help">?</button>
+</div>
+
+<div class="modal fade" id="help" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="#English">English</a></li>
+                    <li><a href="#Vietnam">Tiếng Việt</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="English" class="tab-pane fade in active">
+                        <h3>Content</h3>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                    </div>
+                    <div id="Vietnam" class="tab-pane fade">
+                        <h3>Nội dung</h3>
+
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</p>
+
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</p>
+
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</p>
+
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

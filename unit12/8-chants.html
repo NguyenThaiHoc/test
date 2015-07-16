@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Unit12-Chant</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../css/style12.css">
+    <script type="text/javascript" src="../js/processor.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tryagain').hide();
+        });
+    </script>
+
+</head>
+<body>
+
+    <!--<nav class="navbar navbar-default">-->
+        <!--<div class="navbar-header">-->
+            <!--<a class="navbar-brand" href="../index.html">-->
+                <!--<div class="logo">@BOOK</div>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</nav>-->
+
+<div id="page" class="container">
+    <ol id="page-header" class="breadcrumb">
+        <li><a href="../index.html">English 3</a></li>
+        <li><a href="../units.html">Unit 12</a></li>
+        <li><a href="lessons.html">Practices</a></li>
+        <li>Chants</li>
+    </ol>
+
+
+    <article id="page-content" class="container-fluid">
+        <h2 class="title">8. Let's chant.
+            <a onclick = "startAud()" class = "play-button glyphicon glyphicon-play-circle"></a>
+        </h2>
+
+        <div>
+            <p class="autofocus-current-word hidden">
+                <input type="checkbox" id="autofocus-current-word" checked>
+                <label for="autofocus-current-word">Auto-focus/auto-scroll</label>
+            </p>
+
+            <noscript>
+                <p class="error"><em><strong>Notice:</strong> You must have JavaScript enabled/available to try this HTML5
+                    Audio read along.</em></p>
+            </noscript>
+        </div>
+
+        <div id="passage-text" class="passage col-md-6" >
+            <!--<h3 class="section-heading">one</h3>-->
+            <h3 class="chant-title">Is there a garden?</h3>
+
+            <p><span data-dur="0.154" data-begin="1.0935"></span></p>
+
+            <p><span data-dur="3.154" data-begin="14.0935">Is there a garden behind the house?</span></p>
+
+            <p><span data-dur="3.28" data-begin="18.3257">Yes, there is. Yes, there is.</span></p>
+
+            <p><span data-dur="3.29" data-begin="22.05485">Is there a yard behind the house?</span></p>
+
+            <p><span data-dur="3.29" data-begin="25.97296"> Yes, there is. Yes, there is.</span></p><br>
+
+            <p><span data-dur="3.131" data-begin="29.90409">Is there a gate behind the house?</span></p>
+
+            <p><span data-dur="3.525" data-begin="34.23916">No, there isn’t. No, there isn’t.</span></p>
+
+            <p><span data-dur="3.191" data-begin="38.04817">Is there a pond behind the house?</span></p>
+
+            <p><span data-dur="3.225" data-begin="42.26414">No, there isn’t. No, there isn’t.</span></p>
+        </div>
+        <div class="col-md-6">
+            <img style ="width: 100%; display:inline" src="../images/unit12/chantimg.png" alt="chant">
+        </div>
+
+    </article>
+
+    <nav id="page-footer" class="navbar navbar-default toolbox" >
+        <ul class="nav navbar-nav">
+            <li class="pull-left"><a href="7-songs.html"><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+
+            <!--<li><a onclick="startAud()" id="start"><span class="glyphicon glyphicon-play"></span> Start</a></li>-->
+            <!--<li><a onclick ="" id = "check"><span class="glyphicon glyphicon-check"></span> Let's check</a></li>-->
+            <!--<li><a onclick="" id ="score" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-star"></span> Score</a></li>-->
+            <li><a onclick="reload()" id ="tryagain" class="hidden"><span class="glyphicon glyphicon-repeat"></span> Try again</a></li>
+
+            <li class="pull-right"><a href="lessons.html"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+        </ul>
+    </nav>
+    <button type="button" class="btn btn-info btn-md btn-help"data-toggle="modal" data-target="#help">?</button>
+</div>
+
+<!-- audio fix dskfsd -->
+<p class="loading">
+    <em><img src="../images/loader.gif" alt="Initializing audio">Loading audio…</em>
+</p>
+
+<p class="passage-audio">
+    <audio id="passage-audio" class="passage">
+        <source src="../audio/unit12/Track19.mp3" type="audio/mp3">
+        <em class="error"><strong>Error:</strong> Your browser doesn't appear to support HTML5 Audio.</em>
+    </audio>
+</p>
+<p class="passage-audio-unavailable hidden" >
+    <em class="error"><strong>Error:</strong> You will not be able to do the read-along audio because your
+        browser is not able to play MP3, Ogg, or WAV audio formats.</em>
+</p>
+
+<p class="playback-rate hidden"
+   title="Note that increaseing the reading rate will decrease accuracy of word highlights">
+    <label for="playback-rate" >Reading rate:</label>
+    <input id="playback-rate" type="range" min="0.5" max="2.0" value="1.0" step="0.1" disabled
+           onchange='this.nextElementSibling.textContent = String(Math.round(this.valueAsNumber * 10) / 10) + "\u00D7";'>
+    <!-- <output>1&times;</output> -->
+</p>
+
+<p class="playback-rate-unavailable hidden">
+    <em>(It seems your browser does not support <code>HTMLMediaElement.playbackRate</code>, so you will not be
+        able to change the speech rate.)</em>
+</p>
+
+<div class="modal fade" id="help" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="#English">English</a></li>
+                    <li><a href="#Vietnam">Tiếng Việt</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="English" class="tab-pane fade in active">
+                        <h3>Content</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div id="Vietnam" class="tab-pane fade">
+                        <h3>Nội dung</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/read-along.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

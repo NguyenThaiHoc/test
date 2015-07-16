@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Unit 12-Conversation 1</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-touch-punch.js"></script>
+    <script type="text/javascript" src="js/jquery.maphilight.min.js"></script>
+    <script type="text/javascript" src="js/processor.js"></script>
+    <script type="text/javascript" src="js/jquery-image-mapster.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        	
+        });
+
+        function init(){
+	        $('.drag').draggable({
+	        	containment: "#container",
+	            cursor: 'move',
+	            revert: true,
+                snap: "#container"
+	        });
+			// res.mousedown(downRespuesta);
+
+			function downRespuesta(){
+				$(".respuesta").css("z-index","0");
+				$(this).css("z-index","100");
+			}
+	        $('.drop').droppable({
+	            hoverClass: 'hovered',
+	            drop: handleCardDrop
+	        });
+        }
+
+        function handleCardDrop(event, ui) {
+		    alert("haha");
+		}
+</script>
+ 
+    <style type="text/css">
+    .drag{
+    	height: 50px;
+    	width: 100px;
+    	background-color: red;
+    	margin: 10px;
+    	border-radius: 10px;
+    }
+    .drop{
+    	visibility: visible;
+    	height: 100px;
+    	width: 100px;
+    	background-color: red;
+    }
+    </style>
+</head>
+
+<body>
+	<div class = "container" id = "container">
+		
+		<div id = "#drag">
+			<div class = "drag">abc</div>
+			<div class = "drag">def</div>
+		</div>
+
+        <img id = "testimg" src="images/unit12/5.png" alt="" usemap="#map" style = "width:500px"/>
+        <map name="map">
+            <area alt="abc" class = "drop" coords="152, 160, 244, 190" href="#" shape="rect"></area>
+            <area alt="def" class = "drop" coords="106, 8, 235, 40" href="#" shape="rect"></area>
+        </map>
+		
+	</div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#drag').html( '' );
+  // $('#cardSlots').html( '' );
+    var drop = $('#testimg');
+    var drag = $('.drag');
+    
+    drop.mapster({
+        mapKey: 'alt',
+        fillOpacity: 0.8,
+        fillColor: 'fff',
+        stroke: true,
+        strokeWeight: 2,
+        strokeColor: '00ff00',
+        onConfigured: function() {
+            drop.siblings().css('z-index', 0);
+            drop.css('z-index', 10);
+
+        }
+    });
+
+    drag.css('z-index', 5).draggable({
+        drag: function() {
+            console.log("xxx");
+            $(this).draggable('option', 'revert', true);
+        },
+        containment: "#drag",
+        cursor: 'move',
+        revert: true,
+    }).droppable({
+        
+    });
+    drop.droppable({
+        accept: '.drag',
+        drop: function(e, ui) {
+            var landing = drop.mapster('highlight');
+            $(ui.draggable).css('z-index', 20);
+            if (landing !== null) {
+                ui.draggable.draggable('option', 'revert', false);
+                console.log(ui);
+                console.log($(this));
+                // ui.draggable.position({of: $(this), my: 'left top', at: 'left top'});
+            } else {
+                console.log(landing)
+            }
+        },
+        hoverClass: 'hovered',
+        // accept: 'drag div',
+    });
+
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <title>Unit 12-Conversation 1</title>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui-touch-punch.js"></script>
+    <script type="text/javascript" src="../js/processor.js"></script>
+    <!--<script type="text/javascript" src="https://code.createjs.com/createjs-2015.05.21.min.js"></script>-->
+    <script type="text/javascript">
+    var score = 0;
+
+        var words = [{"key": 1, "top": "8%", "left": "20%"},
+        {"key": 2, "top": "24%", "left": "11%"}];
+
+        var letters = [{"content": "This is my house.", "key": 1, "sound":"Track11_1_1.mp3"}, {"content": "Wow! It is big!", "key": 2, "sound": "Track11_1_2.mp3"}];
+
+        var words2 = [{"key": 1, "top": "18%", "left": "18%"},
+        {"key": 2, "top": "70%", "left": "15%"}];
+
+        var letters2 = [{"content": "There's a garden over there.<br>Come and see it.", "key": 1,"sound": "Track11_2_1.mp3"},
+        {"content": "It's very nice!", "key": 2, "sound":"Track11_2_2.mp3"}];
+
+
+        $(document).ready(function () {
+            initConversation(letters, words, '#cardPilePD', '#cardSlotsPD', '#page-content');
+            initConversation(letters2, words2, '#cardPilePD22', '#cardSlotsPD22', '#page-content');
+        });
+
+    </script>
+</head>
+
+<body>
+<!--<nav class="navbar navbar-default">-->
+    <!--<div class="navbar-header">-->
+        <!--<a class="navbar-brand" href="../index.html">-->
+            <!--<div class="logo">@BOOK</div>-->
+        <!--</a>-->
+    <!--</div>-->
+<!--</nav>-->
+
+<div id="page" class="container fill">
+    <ol id="page-header" class="breadcrumb">
+        <li><a href="../index.html">English 3</a></li>
+        <li><a href="../units.html">Unit 12</a></li>
+        <li><a href="lessons.html">Practices</a></li>
+        <li>Conversation 1</li>
+    </ol>
+
+    <div id="page-content">
+            <h2 class="title">
+                1. Look, listen and reapeat.
+                <a onclick = "playAudio('passage-audio')" class = "play-button glyphicon glyphicon-play-circle"></a>
+            </h2>
+
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="cardSlotsCS " id="cardSlotsPD" style="height: 380px;position: relative;background-image: url('../images/unit12/2.png');background-repeat: no-repeat;background-position: center classenter;background-size: 100% 100%">
+                </div>
+                <div class="cardPileCS" id="cardPilePD"></div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="cardSlotsCS " id="cardSlotsPD22" style="height: 380px;position: relative;background-image: url('../images/unit12/3.png');background-repeat: no-repeat;background-position: center center;background-size: 100% 100%">
+                </div>
+                <div class="cardPileCS" id="cardPilePD22"></div>
+            </div>
+        </div>
+        <div>
+            <audio id="passage-audio">
+                <source src="../audio/unit12/Track11.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <nav id="page-footer" class="navbar navbar-default toolbox">
+        <ul class="nav navbar-nav">
+            <li class="pull-left"><a href="lessons.html"><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+
+            <!--<li><a onclick="startAudCheck()" id="start"><span class="glyphicon glyphicon-play"></span> Play</a></li>-->
+            <li><a onclick ="toolboxCheck()" id = "check"><span class="glyphicon glyphicon-check"></span> Let's check</a></li>
+            <li> <p id="score"></p> </li>
+
+            <!--<li><a onclick="toolboxScore(4)" id ="score" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-star"></span> Score</a></li>-->
+            <li><a onclick="reload()" id ="tryagain" class="hidden"><span class="glyphicon glyphicon-repeat"></span>Try again</a></li>
+
+            <li class="pull-right"><a href="2-conversation2.html"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+        </ul>
+    </nav>
+    <button type="button" class="btn btn-info btn-md btn-help"data-toggle="modal" data-target="#help">?</button>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Điểm số!</h4>
+            </div>
+            <div class="modal-body">
+                <p id ="x"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="help" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="#English">English</a></li>
+                    <li><a href="#Vietnam">Tiếng Việt</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="English" class="tab-pane fade in active">
+                        <h3>Content</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div id="Vietnam" class="tab-pane fade">
+                        <h3>Nội dung</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -31,7 +31,7 @@ function init() {
 
   for ( var i=0; i<10; i++ ){
     $('<div>' + numbers[i]["content"] + '</div>').data( 'number', numbers[i]["key"] ).appendTo( '#cardPile' ).draggable( {
-      containment: '#content',
+      containment: '#page-content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
@@ -49,7 +49,7 @@ function init() {
     var prDiv = "cardSlots"+i;
     var prDivt = "#cardSlots"+i;
     $('<div id = '+ prDiv+'>').appendTo('#cardSlots');
-    $('<img width= "200" src = "images/unit12/1.png">').appendTo(prDivt);
+    $('<img width= "200" src = "images/unit12/2.png">').appendTo(prDivt);
     $('<div> ' + words[i]["key"] + '</div>').data( 'number', words[i]["key"] ).appendTo(prDivt).droppable( {
       accept: '#cardPile div',
       hoverClass: 'hovered',
